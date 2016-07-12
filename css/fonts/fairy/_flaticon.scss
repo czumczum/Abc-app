@@ -1,0 +1,109 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 22/06/2016 15:35
+    */
+
+    @font-face {
+  font-family: "Flaticon-fairy";
+  src: url("./fonts/fairy/Flaticon.eot");
+  src: url("./fonts/fairy/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./fonts/fairy/Flaticon.woff") format("woff"),
+       url("./fonts/fairy/Flaticon.ttf") format("truetype"),
+       url("./fonts/fairy/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon-fairy";
+    src: url("./fonts/fairy/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon-fairy";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-apple:before { font-family: "Flaticon-fairy"; content: "\f100"; }
+.flaticon-book-of-fairy-tales:before { font-family: "Flaticon-fairy"; content: "\f101"; }
+.flaticon-castle:before { font-family: "Flaticon-fairy"; content: "\f102"; }
+.flaticon-cinderella-carriage:before { font-family: "Flaticon-fairy"; content: "\f103"; }
+.flaticon-cinderella-shoe:before { font-family: "Flaticon-fairy"; content: "\f104"; }
+.flaticon-crown:before { font-family: "Flaticon-fairy"; content: "\f105"; }
+.flaticon-cyclops:before { font-family: "Flaticon-fairy"; content: "\f106"; }
+.flaticon-dragon:before { font-family: "Flaticon-fairy"; content: "\f107"; }
+.flaticon-elf:before { font-family: "Flaticon-fairy"; content: "\f108"; }
+.flaticon-elf-1:before { font-family: "Flaticon-fairy"; content: "\f109"; }
+.flaticon-excalibur:before { font-family: "Flaticon-fairy"; content: "\f10a"; }
+.flaticon-fairy:before { font-family: "Flaticon-fairy"; content: "\f10b"; }
+.flaticon-gingerbread-house:before { font-family: "Flaticon-fairy"; content: "\f10c"; }
+.flaticon-gnome:before { font-family: "Flaticon-fairy"; content: "\f10d"; }
+.flaticon-goblin:before { font-family: "Flaticon-fairy"; content: "\f10e"; }
+.flaticon-gold:before { font-family: "Flaticon-fairy"; content: "\f10f"; }
+.flaticon-king:before { font-family: "Flaticon-fairy"; content: "\f110"; }
+.flaticon-knight:before { font-family: "Flaticon-fairy"; content: "\f111"; }
+.flaticon-little-red-riding-hood:before { font-family: "Flaticon-fairy"; content: "\f112"; }
+.flaticon-magic-wand:before { font-family: "Flaticon-fairy"; content: "\f113"; }
+.flaticon-potion:before { font-family: "Flaticon-fairy"; content: "\f114"; }
+.flaticon-potion-1:before { font-family: "Flaticon-fairy"; content: "\f115"; }
+.flaticon-potion-2:before { font-family: "Flaticon-fairy"; content: "\f116"; }
+.flaticon-prince:before { font-family: "Flaticon-fairy"; content: "\f117"; }
+.flaticon-princess:before { font-family: "Flaticon-fairy"; content: "\f118"; }
+.flaticon-queen:before { font-family: "Flaticon-fairy"; content: "\f119"; }
+.flaticon-rapunzel-tower:before { font-family: "Flaticon-fairy"; content: "\f11a"; }
+.flaticon-soothsaying:before { font-family: "Flaticon-fairy"; content: "\f11b"; }
+.flaticon-spellbook:before { font-family: "Flaticon-fairy"; content: "\f11c"; }
+.flaticon-three-piglets:before { font-family: "Flaticon-fairy"; content: "\f11d"; }
+.flaticon-unicorn:before { font-family: "Flaticon-fairy"; content: "\f11e"; }
+.flaticon-vampire:before { font-family: "Flaticon-fairy"; content: "\f11f"; }
+.flaticon-viking:before { font-family: "Flaticon-fairy"; content: "\f120"; }
+.flaticon-wizard:before { font-family: "Flaticon-fairy"; content: "\f121"; }
+.flaticon-wolf:before { font-family: "Flaticon-fairy"; content: "\f122"; }
+    
+    $font-Flaticon-apple: "\f100";
+    $font-Flaticon-book-of-fairy-tales: "\f101";
+    $font-Flaticon-castle: "\f102";
+    $font-Flaticon-cinderella-carriage: "\f103";
+    $font-Flaticon-cinderella-shoe: "\f104";
+    $font-Flaticon-crown: "\f105";
+    $font-Flaticon-cyclops: "\f106";
+    $font-Flaticon-dragon: "\f107";
+    $font-Flaticon-elf: "\f108";
+    $font-Flaticon-elf-1: "\f109";
+    $font-Flaticon-excalibur: "\f10a";
+    $font-Flaticon-fairy: "\f10b";
+    $font-Flaticon-gingerbread-house: "\f10c";
+    $font-Flaticon-gnome: "\f10d";
+    $font-Flaticon-goblin: "\f10e";
+    $font-Flaticon-gold: "\f10f";
+    $font-Flaticon-king: "\f110";
+    $font-Flaticon-knight: "\f111";
+    $font-Flaticon-little-red-riding-hood: "\f112";
+    $font-Flaticon-magic-wand: "\f113";
+    $font-Flaticon-potion: "\f114";
+    $font-Flaticon-potion-1: "\f115";
+    $font-Flaticon-potion-2: "\f116";
+    $font-Flaticon-prince: "\f117";
+    $font-Flaticon-princess: "\f118";
+    $font-Flaticon-queen: "\f119";
+    $font-Flaticon-rapunzel-tower: "\f11a";
+    $font-Flaticon-soothsaying: "\f11b";
+    $font-Flaticon-spellbook: "\f11c";
+    $font-Flaticon-three-piglets: "\f11d";
+    $font-Flaticon-unicorn: "\f11e";
+    $font-Flaticon-vampire: "\f11f";
+    $font-Flaticon-viking: "\f120";
+    $font-Flaticon-wizard: "\f121";
+    $font-Flaticon-wolf: "\f122";

@@ -6,19 +6,26 @@
     "letter": {
       "a": {
         "aktor": "flaticon-charlie-chaplin",
-        "auto": "flaticon-",
+        "auto": "flaticon-car",
         "arena": "flaticon-big-stadium",
         "ala": "flaticon-big-stadium",
         "afryka": "flaticon-africa-map",
-        "ara": "flaticon-macaw"
+        "ara": "flaticon-macaw",
+        "autobus": "flaticon-bus"
       },
       "b": {
         "balon": "flaticon",
         "byk": "flaticon",
         "bocian": "brat",
         "brat": "flaticon",
-        "biurko": "flaticon-desk"
+        "biurko": "flaticon-desk",
+        "bank": "flaticon-bank",
+        "but": "flaticon-cinderella-shoe"
       },
+      "c": {
+        "cyrk": "flaticon-circus",
+        "cyklop": "flaticon-cyclops"
+      }
       "cz": {
         "czapka": "flaticon-mortarboard"
       }
@@ -27,7 +34,12 @@
       },
       "e": {
         "eryk": "flaticon-boy-5",
-        "farby": "flaticon-palette"
+        "elf": "flaticon-elf-1"
+      },
+      "f": {
+        "farby": "flaticon-palette",
+        "fabryka": "flaticon-factory"
+
       },
       "g": {
         "globus": "flaticon-earth-globe",
@@ -46,7 +58,8 @@
         "krowa": "flaticon-cow",
         "kura": "flaticon-hen",
         "królik": "flaticon-rabbit",
-        "kobra": "flaticon-cobra"
+        "kobra": "flaticon-cobra",
+        "korona": "flaticon-crown"
       },
       "l": {
         "lew": "flaticon-lion",
@@ -91,7 +104,9 @@
         "sowa": "flaticon-owl",
         "spinacz": "flaticon-paperclip",
         "słoń": "flaticon-elephant",
-        "struś": "flaticon-ostrich"
+        "struś": "flaticon-ostrich",
+        "sklep": "flaticon-shop",
+        "smok": "flaticon-dragon"
       },
       "sz": {
         "szkoła": "flaticon-school",
@@ -110,7 +125,11 @@
       },
       "w": {
         "wąż": "flaticon-snake"
-      }
+      },
+      "z": {
+        "znak": "flaticon-stop",
+        "zamek": "flaticon-castle"
+      },
       "ż": {
         "żuk": "flaticon-beetle",
         "żaba": "flaticon-frog",

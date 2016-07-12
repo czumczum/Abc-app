@@ -3,6 +3,8 @@
 @import "fonts/kids/flaticon";
 @import "fonts/edu/flaticon";
 @import "fonts/animals/flaticon";
+@import "fonts/city/flaticon";
+@import "fonts/fairy/flaticon";
 
 * {
 	padding: 0;
@@ -14,6 +16,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	height: 100vh;
+	overflow: hidden;
 }
 h1 {
 	font-family: 'Katibeh', cursive;
@@ -30,6 +33,7 @@ h1 {
 		width: 50vw;
 		justify-content: center;
 		text-transform: uppercase;
+		cursor: pointer;
 		.clicked {
 			font-size: 15vw;
 			width: 50vw;
@@ -58,6 +62,7 @@ i {
 	font-size: 6vw;
 	font-style: normal;
 	color: $emColor;
+	cursor: pointer;
 	@media (min-width: $forthDim) {
 		font-size: 4vw;
 	}
@@ -78,7 +83,11 @@ header {
 	@media all and (orientation:portrait)  and (min-width: $firstDim) {
 		height: 10vh;
 	}
+	@media all and (min-width: $thirDim) {
+		height: 10vh;
+	}
 }
+
 main {
 	display: flex;
 	justify-content: center;
@@ -98,7 +107,7 @@ main {
 	justify-content: center;
 	width: 50vw;
 	p {
-		margin: 1vw 5vw;
+		margin: 1vw 3vw;
 	}
 	i {
 		font-size: 10vw;
@@ -124,7 +133,7 @@ main {
 			}
 		}
 		p {
-			padding: 1vh 5vw;
+			margin: 1vh 5vw;
 		}
 	}
 
@@ -145,10 +154,38 @@ main {
 		-webkit-animation: fadeIn .5s ease-in 1 forwards;
 		animation: fadeIn .5s ease-in 1 forwards;
 		opacity: 0;
+		transition: 1s;
+		transform: scale(1);
 	}
 
 	.is-paused {
 		-webkit-animation-play-state: paused;
 		animation-play-state: paused;
+		transform: scale(0.1);
+
+	}
+}
+nav {
+	display: none;
+	@media (min-width: $thirDim) {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+		h1 {
+			text-transform: uppercase;
+			font-size: 4vw;
+			box-sizing: border-box;
+			padding: 0 1vw 1vh 1vw;
+			color: $emColor;
+			transition: 1s;
+			opacity: 0.5;
+			cursor: pointer;
+			&:hover {
+				transform: scale(1.5);
+				transform-origin: 50% 100%;
+				color: $mainColor;
+				opacity: 1;
+			}
+		}
 	}
 }

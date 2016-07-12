@@ -6,3 +6,10 @@ $firstDim: 425px;
 $seconDim: 680px;
 $thirDim: 1024px;
 $forthDim: 1200px;
+
+
+$anime-time: 8s;
+$box-size: 50px;
+$clip-distance: .05;
+$clip-size: $box-size * (1 + $clip-distance * 2);
+$path-width: 2px;
