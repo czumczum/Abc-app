@@ -54,12 +54,17 @@
 .flaticon-boy-22:before { content: "\f10f"; }
 .flaticon-boy-3:before { content: "\f110"; }
 .flaticon-boy-4:before { content: "\f111"; }
-.flaticon-boy-5:before { content: "\f112"; }
+.flaticon-boy-5:before {
+  font-family: "Flaticon-kid";
+  content: "\f112"; }
 .flaticon-boy-6:before { content: "\f113"; }
 .flaticon-boy-7:before { content: "\f114"; }
 .flaticon-boy-8:before { content: "\f115"; }
 .flaticon-boy-9:before { content: "\f116"; }
-.flaticon-girl:before { content: "\f117"; }
+.flaticon-girl {
+  font-family: "Flaticon-kid";
+  &:before { content: "\f117"; }
+}
 .flaticon-girl-1:before { content: "\f118"; }
 .flaticon-girl-10:before { content: "\f119"; }
 .flaticon-girl-11:before { content: "\f11a"; }

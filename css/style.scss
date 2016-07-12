@@ -1,13 +1,15 @@
 @import "variables";
 @import "flaticon";
 @import "fonts/kids/flaticon";
+@import "fonts/edu/flaticon";
+@import "fonts/animals/flaticon";
 
 * {
 	padding: 0;
 	margin: 0;
 }
 body {
-	background-color: white;
+	background-color: $bgColor;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -16,16 +18,28 @@ body {
 h1 {
 	font-family: 'Katibeh', cursive;
 	color: $mainColor;
+	display: flex;
+	align-self: flex-start;
 	em {
 		font-style: normal;
 		color: $emColor;
 	}
 	&.letter {
+		font-family: 'PT Serif', serif;
 		font-size: 30vw;
 		width: 50vw;
-		display: flex;
 		justify-content: center;
-		align-self: flex-start;
+		.clicked {
+			font-size: 15vw;
+			width: 50vw;
+			justify-content: center;
+			align-self: center;
+			em {
+				font-size: 15vw;
+				letter-spacing: 5px;
+				display: inline-flex;
+			}
+		}
 	}
 }
 i {
@@ -59,9 +73,41 @@ main {
 	justify-content: center;
 	width: 50vw;
 	p {
-		margin: 5vw;
+		margin: 1vw 5vw;
 	}
 	i {
 		font-size: 10vw;
+		transition: 1s;
+		padding: 1vw;
+		display: inline-flex;
+		&:hover {
+			transform: rotare(360deg) scale(0.8);
+			border-radius: 50%;
+			background-color: $emColor;
+			color: $bgColor;
+		}
+	}
+
+	@-webkit-keyframes fadeIn {
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fadeIn {
+		to {
+			opacity: 1;
+		}
+	}
+
+	.hidden {
+		-webkit-animation: fadeIn .5s ease-in 1 forwards;
+		animation: fadeIn .5s ease-in 1 forwards;
+		opacity: 0;
+	}
+
+	.is-paused {
+		-webkit-animation-play-state: paused;
+		animation-play-state: paused;
 	}
 }

@@ -1,0 +1,81 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 22/06/2016 15:47
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-anteater:before { content: "\f100"; }
+.flaticon-bat:before { content: "\f101"; }
+.flaticon-beetle:before { content: "\f102"; }
+.flaticon-bulldog:before { content: "\f103"; }
+.flaticon-butterfly:before { content: "\f104"; }
+.flaticon-camel:before { content: "\f105"; }
+.flaticon-cat:before { content: "\f106"; }
+.flaticon-chameleon:before { content: "\f107"; }
+.flaticon-clown-fish:before { content: "\f108"; }
+.flaticon-cobra:before { content: "\f109"; }
+.flaticon-cow:before { content: "\f10a"; }
+.flaticon-crab:before { content: "\f10b"; }
+.flaticon-crocodile:before { content: "\f10c"; }
+.flaticon-duck:before { content: "\f10d"; }
+.flaticon-elephant:before { content: "\f10e"; }
+.flaticon-frog:before { content: "\f10f"; }
+.flaticon-giraffe:before { content: "\f110"; }
+.flaticon-hen:before { content: "\f111"; }
+.flaticon-hippopotamus:before { content: "\f112"; }
+.flaticon-kangaroo:before { content: "\f113"; }
+.flaticon-lion:before { content: "\f114"; }
+.flaticon-llama:before { content: "\f115"; }
+.flaticon-macaw:before { content: "\f116"; }
+.flaticon-monkey:before { content: "\f117"; }
+.flaticon-moose:before { content: "\f118"; }
+.flaticon-mouse:before { content: "\f119"; }
+.flaticon-octopus:before { content: "\f11a"; }
+.flaticon-ostrich:before { content: "\f11b"; }
+.flaticon-owl:before { content: "\f11c"; }
+.flaticon-panda:before { content: "\f11d"; }
+.flaticon-pelican:before { content: "\f11e"; }
+.flaticon-penguin:before { content: "\f11f"; }
+.flaticon-pig:before { content: "\f120"; }
+.flaticon-rabbit:before { content: "\f121"; }
+.flaticon-racoon:before { content: "\f122"; }
+.flaticon-ray:before { content: "\f123"; }
+.flaticon-rhinoceros:before { content: "\f124"; }
+.flaticon-sea-cow:before { content: "\f125"; }
+.flaticon-shark:before { content: "\f126"; }
+.flaticon-sheep:before { content: "\f127"; }
+.flaticon-siberian-husky:before { content: "\f128"; }
+.flaticon-sloth:before { content: "\f129"; }
+.flaticon-snake:before { content: "\f12a"; }
+.flaticon-spider:before { content: "\f12b"; }
+.flaticon-squirrel:before { content: "\f12c"; }
+.flaticon-swan:before { content: "\f12d"; }
+.flaticon-tiger:before { content: "\f12e"; }
+.flaticon-toucan:before { content: "\f12f"; }
+.flaticon-turtle:before { content: "\f130"; }
+.flaticon-whale:before { content: "\f131"; }

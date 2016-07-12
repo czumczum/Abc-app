@@ -1,0 +1,189 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 22/06/2016 15:47
+    */
+
+    @font-face {
+  font-family: "Flaticon-ani";
+  src: url("./fonts/animals/Flaticon.eot");
+  src: url("./fonts/animals/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./fonts/animals/Flaticon.woff") format("woff"),
+       url("./fonts/animals/Flaticon.ttf") format("truetype"),
+       url("./fonts/animals/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon-ani";
+    src: url("./fonts/animals/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon-ani";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-anteater:before { font-family: "Flaticon-ani";
+    content: "\f100"; }
+.flaticon-bat:before { font-family: "Flaticon-ani";
+content: "\f101"; }
+.flaticon-beetle:before { font-family: "Flaticon-ani";
+content: "\f102"; }
+.flaticon-bulldog:before { font-family: "Flaticon-ani";
+content: "\f103"; }
+.flaticon-butterfly:before { font-family: "Flaticon-ani";
+content: "\f104"; }
+.flaticon-camel:before { font-family: "Flaticon-ani";
+content: "\f105"; }
+.flaticon-cat:before { font-family: "Flaticon-ani";
+content: "\f106"; }
+.flaticon-chameleon:before { font-family: "Flaticon-ani";
+content: "\f107"; }
+.flaticon-clown-fish:before { font-family: "Flaticon-ani";
+content: "\f108"; }
+.flaticon-cobra:before { font-family: "Flaticon-ani";
+content: "\f109"; }
+.flaticon-cow:before { font-family: "Flaticon-ani";
+content: "\f10a"; }
+.flaticon-crab:before { font-family: "Flaticon-ani";
+content: "\f10b"; }
+.flaticon-crocodile:before { font-family: "Flaticon-ani";
+content: "\f10c"; }
+.flaticon-duck:before { font-family: "Flaticon-ani";
+content: "\f10d"; }
+.flaticon-elephant:before { font-family: "Flaticon-ani";
+content: "\f10e"; }
+.flaticon-frog:before { font-family: "Flaticon-ani";
+content: "\f10f"; }
+.flaticon-giraffe:before { font-family: "Flaticon-ani";
+content: "\f110"; }
+.flaticon-hen:before { font-family: "Flaticon-ani";
+content: "\f111"; }
+.flaticon-hippopotamus:before { font-family: "Flaticon-ani";
+content: "\f112"; }
+.flaticon-kangaroo:before { font-family: "Flaticon-ani";
+content: "\f113"; }
+.flaticon-lion:before { font-family: "Flaticon-ani";
+content: "\f114"; }
+.flaticon-llama:before { font-family: "Flaticon-ani";
+content: "\f115"; }
+.flaticon-macaw:before { font-family: "Flaticon-ani";
+content: "\f116"; }
+.flaticon-monkey:before { font-family: "Flaticon-ani";
+content: "\f117"; }
+.flaticon-moose:before { font-family: "Flaticon-ani";
+content: "\f118"; }
+.flaticon-mouse:before { font-family: "Flaticon-ani";
+content: "\f119"; }
+.flaticon-octopus:before { font-family: "Flaticon-ani";
+content: "\f11a"; }
+.flaticon-ostrich:before { font-family: "Flaticon-ani";
+content: "\f11b"; }
+.flaticon-owl:before { font-family: "Flaticon-ani";
+content: "\f11c"; }
+.flaticon-panda:before { font-family: "Flaticon-ani";
+content: "\f11d"; }
+.flaticon-pelican:before { font-family: "Flaticon-ani";
+content: "\f11e"; }
+.flaticon-penguin:before { font-family: "Flaticon-ani";
+content: "\f11f"; }
+.flaticon-pig:before { font-family: "Flaticon-ani";
+content: "\f120"; }
+.flaticon-rabbit:before { font-family: "Flaticon-ani";
+content: "\f121"; }
+.flaticon-racoon:before { font-family: "Flaticon-ani";
+content: "\f122"; }
+.flaticon-ray:before { font-family: "Flaticon-ani";
+content: "\f123"; }
+.flaticon-rhinoceros:before { font-family: "Flaticon-ani";
+content: "\f124"; }
+.flaticon-sea-cow:before { font-family: "Flaticon-ani";
+content: "\f125"; }
+.flaticon-shark:before { font-family: "Flaticon-ani";
+content: "\f126"; }
+.flaticon-sheep:before { font-family: "Flaticon-ani";
+content: "\f127"; }
+.flaticon-siberian-husky:before { font-family: "Flaticon-ani";
+content: "\f128"; }
+.flaticon-sloth:before { font-family: "Flaticon-ani";
+content: "\f129"; }
+.flaticon-snake:before { font-family: "Flaticon-ani";
+content: "\f12a"; }
+.flaticon-spider:before { font-family: "Flaticon-ani";
+content: "\f12b"; }
+.flaticon-squirrel:before { font-family: "Flaticon-ani";
+content: "\f12c"; }
+.flaticon-swan:before { font-family: "Flaticon-ani";
+content: "\f12d"; }
+.flaticon-tiger:before { font-family: "Flaticon-ani";
+content: "\f12e"; }
+.flaticon-toucan:before { font-family: "Flaticon-ani";
+content: "\f12f"; }
+.flaticon-turtle:before { font-family: "Flaticon-ani";
+content: "\f130"; }
+.flaticon-whale:before { font-family: "Flaticon-ani";
+content: "\f131"; }
+    
+    $font-Flaticon-anteater: "\f100";
+    $font-Flaticon-bat: "\f101";
+    $font-Flaticon-beetle: "\f102";
+    $font-Flaticon-bulldog: "\f103";
+    $font-Flaticon-butterfly: "\f104";
+    $font-Flaticon-camel: "\f105";
+    $font-Flaticon-cat: "\f106";
+    $font-Flaticon-chameleon: "\f107";
+    $font-Flaticon-clown-fish: "\f108";
+    $font-Flaticon-cobra: "\f109";
+    $font-Flaticon-cow: "\f10a";
+    $font-Flaticon-crab: "\f10b";
+    $font-Flaticon-crocodile: "\f10c";
+    $font-Flaticon-duck: "\f10d";
+    $font-Flaticon-elephant: "\f10e";
+    $font-Flaticon-frog: "\f10f";
+    $font-Flaticon-giraffe: "\f110";
+    $font-Flaticon-hen: "\f111";
+    $font-Flaticon-hippopotamus: "\f112";
+    $font-Flaticon-kangaroo: "\f113";
+    $font-Flaticon-lion: "\f114";
+    $font-Flaticon-llama: "\f115";
+    $font-Flaticon-macaw: "\f116";
+    $font-Flaticon-monkey: "\f117";
+    $font-Flaticon-moose: "\f118";
+    $font-Flaticon-mouse: "\f119";
+    $font-Flaticon-octopus: "\f11a";
+    $font-Flaticon-ostrich: "\f11b";
+    $font-Flaticon-owl: "\f11c";
+    $font-Flaticon-panda: "\f11d";
+    $font-Flaticon-pelican: "\f11e";
+    $font-Flaticon-penguin: "\f11f";
+    $font-Flaticon-pig: "\f120";
+    $font-Flaticon-rabbit: "\f121";
+    $font-Flaticon-racoon: "\f122";
+    $font-Flaticon-ray: "\f123";
+    $font-Flaticon-rhinoceros: "\f124";
+    $font-Flaticon-sea-cow: "\f125";
+    $font-Flaticon-shark: "\f126";
+    $font-Flaticon-sheep: "\f127";
+    $font-Flaticon-siberian-husky: "\f128";
+    $font-Flaticon-sloth: "\f129";
+    $font-Flaticon-snake: "\f12a";
+    $font-Flaticon-spider: "\f12b";
+    $font-Flaticon-squirrel: "\f12c";
+    $font-Flaticon-swan: "\f12d";
+    $font-Flaticon-tiger: "\f12e";
+    $font-Flaticon-toucan: "\f12f";
+    $font-Flaticon-turtle: "\f130";
+    $font-Flaticon-whale: "\f131";

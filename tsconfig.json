@@ -1,0 +1,88 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true
+    "letter": {
+      "a": {
+        "aktor": "flaticon-charlie-chaplin",
+        "auto": "flaticon-",
+        "arena": "flaticon-big-stadium",
+        "ala": "flaticon-big-stadium",
+        "afryka": "flaticon-africa-map"
+      },
+      "b": {
+        "balon": "flaticon",
+        "byk": "flaticon",
+        "bocian": "brat",
+        "brat": "flaticon",
+        "biurko": "flaticon-desk"
+      },
+      "cz": {
+        "czapka": "flaticon-mortarboard"
+      }
+      "d": {
+        "dym": "flaticon-nature",
+      },
+      "e": {
+        "eryk": "flaticon-boy-5",
+        "farby": "flaticon-palette"
+      },
+      "g": {
+        "globus": "flaticon-earth-globe",
+        "gumka": "flaticon-eraser",
+        "gimbus": "flaticon-school-bus"
+      },
+      "i": {
+        "irlandia": "flaticon-leprechaun",
+      },
+      "j": {
+        "jabłko": "flaticon-boy-5",
+      },
+      "k": {
+        "książka": "flaticon-open-book "
+      }
+      "m": {
+        "mumia": "flaticon-mummy-head-with-opened-eyes-for-halloween",
+        "muzyka": "musical-pentagram-lines-with-music-notes",
+        "mama": "flaticon-people-1",
+        "myszka": "flaticon-computer-mouse",
+        "medal": "flaticon-medal",
+        "motyl": "flaticon-butterfly"
+      },
+      "n": {
+        "notes": "flaticon-notebook"
+      }
+      "o": {
+        "opona": "flaticon-truck-wheel",
+        "okulary": "flaticon-glasses",
+        "ołówek": "flaticon-pencil"
+      },
+      "p": {
+        "plecak": "flaticon-backpack",
+        "piłka": "flaticon-basketball",
+        "pióro": "flaticon-fountain-pen",
+        "pędzel": "flaticon-paint-brush"
+      },
+      "s": {
+        "sowa": "flaticon-owl",
+        "spinacz": "flaticon-paperclip"
+      },
+      "sz": {
+        "szkoła": "flaticon-school"
+      }
+      "t": {
+        "taczka": "flaticon-wheelbarrow",
+        "tablica": "flaticon-blackboard",
+        "teczka": "flaticon-briefcase",
+        "test": "flaticon-test"
+      },
+      "ż": {
+        "żuk": "flaticon-beetle"
+      }
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
