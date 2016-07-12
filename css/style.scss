@@ -165,7 +165,7 @@ main {
 
 	}
 }
-nav {
+footer {
 	display: none;
 	@media (min-width: $thirDim) {
 		display: flex;
@@ -186,6 +186,30 @@ nav {
 				color: $mainColor;
 				opacity: 1;
 			}
+		}
+	}
+}
+nav {
+	width: 50vw;
+	height: 80vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: -5vh;
+	h1 {
+		text-transform: uppercase;
+		font-size: 8vw;
+		box-sizing: border-box;
+		padding: 1vh 2vw;
+		color: #2bb5c1;
+		transition: 1s;
+		opacity: 0.5;
+		cursor: pointer;
+		&:hover {
+			transform: scale(1.5);
+			transform-origin: 50% 100%;
+			color: $mainColor;
+			opacity: 1;
 		}
 	}
 }

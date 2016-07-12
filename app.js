@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     //Variables
     var letterSpace = document.querySelector(".abc");
     var bigLetter = document.querySelector('h1.letter');
-    var navMenu = document.querySelectorAll('nav h1');
+    var navMenu = document.querySelectorAll('footer h1');
+    var settings = document.querySelector("header i");
     var letterMax = 10; //The user set the max length of letters in one word
 
 
@@ -44,14 +45,48 @@ document.addEventListener("DOMContentLoaded", function () {
         bigLetter.addEventListener("click", showLetter);
     };
 
+    //Menu handling
     for (var i = 0; i < navMenu.length; i++) {
         navMenu[i].addEventListener("click", function() {
             var letter = this.innerText.toLowerCase();
             loadPage(letter);
-            console.log(typeof letter);
-            console.log(letter);
-        });
-    }
+        })
+    };
+
+    var menuShow = function (e) {
+        if (document.querySelector("nav") != null) {
+            var toRemove = document.querySelector('nav');
+            toRemove.parentNode.removeChild(toRemove);
+        }
+        document.querySelector('main').style.display = "none";
+        var footer = document.querySelector('footer');
+        if (footer.clientWidth > 0) { //save the footer default display (none on mobile, flex on wider screens
+            var footerDisplay = "flex";
+        } else {
+            var footerDisplay = "none";
+        };
+        footer.style.display = "none";
+        var screen = document.createElement("nav");
+        document.body.appendChild(screen);
+        for (key in lettersDb) {
+            var letterGap = document.createElement('h1');
+            screen.appendChild(letterGap);
+            letterGap.innerText = key;
+        };
+        var buttons = document.querySelectorAll('nav h1');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function () {
+                screen.style.display = "none";
+                var letter = this.innerText.toLowerCase();
+                loadPage(letter);
+                document.querySelector('main').style.display = "flex";
+                document.querySelector('footer').style.display = footerDisplay;
+
+            })
+        }
+    };
+
+    settings.addEventListener("click", menuShow);
     
     //Database
     var lettersDb =
@@ -105,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "jabłko": "flaticon-apple",
     },
         "k": {
-        "książka": "flaticon-open-book ",
+        "książka": "flaticon-open-book",
             "kot": "flaticon-cat",
             "krowa": "flaticon-cow",
             "kura": "flaticon-hen",
