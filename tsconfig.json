@@ -9,7 +9,8 @@
         "auto": "flaticon-",
         "arena": "flaticon-big-stadium",
         "ala": "flaticon-big-stadium",
-        "afryka": "flaticon-africa-map"
+        "afryka": "flaticon-africa-map",
+        "ara": "flaticon-macaw"
       },
       "b": {
         "balon": "flaticon",
@@ -40,7 +41,17 @@
         "jabłko": "flaticon-boy-5",
       },
       "k": {
-        "książka": "flaticon-open-book "
+        "książka": "flaticon-open-book ",
+        "kot": "flaticon-cat",
+        "krowa": "flaticon-cow",
+        "kura": "flaticon-hen",
+        "królik": "flaticon-rabbit",
+        "kobra": "flaticon-cobra"
+      },
+      "l": {
+        "lew": "flaticon-lion",
+        "lama": "flaticon-llama",
+        "leniwiec": "flaticon-sloth"
       }
       "m": {
         "mumia": "flaticon-mummy-head-with-opened-eyes-for-halloween",
@@ -48,37 +59,62 @@
         "mama": "flaticon-people-1",
         "myszka": "flaticon-computer-mouse",
         "medal": "flaticon-medal",
-        "motyl": "flaticon-butterfly"
+        "motyl": "flaticon-butterfly",
+        "małpa": "flaticon-monkey",
+        "mysz": "flaticon-mouse"
       },
       "n": {
-        "notes": "flaticon-notebook"
+        "notes": "flaticon-notebook",
+        "nemo": "flaticon-clown-fish"
       }
       "o": {
         "opona": "flaticon-truck-wheel",
         "okulary": "flaticon-glasses",
-        "ołówek": "flaticon-pencil"
+        "ołówek": "flaticon-pencil",
+        "owca": "flaticon-sheep"
       },
       "p": {
         "plecak": "flaticon-backpack",
         "piłka": "flaticon-basketball",
         "pióro": "flaticon-fountain-pen",
-        "pędzel": "flaticon-paint-brush"
+        "pędzel": "flaticon-paint-brush",
+        "pies": "flaticon-bulldog",
+        "panda": "flaticon-panda",
+        "pelikan": "flaticon-pelican",
+        "pająk": "flaticon-spider"
       },
+      "r": {
+        "rak": "flaticon-crab",
+        "rekin": "flaticon-shark"
+      }
       "s": {
         "sowa": "flaticon-owl",
-        "spinacz": "flaticon-paperclip"
+        "spinacz": "flaticon-paperclip",
+        "słoń": "flaticon-elephant",
+        "struś": "flaticon-ostrich"
       },
       "sz": {
-        "szkoła": "flaticon-school"
+        "szkoła": "flaticon-school",
+        "szop": "flaticon-racoon"
+      },
+      "ś": {
+        "świnia": "flaticon-pig"
       }
       "t": {
         "taczka": "flaticon-wheelbarrow",
         "tablica": "flaticon-blackboard",
         "teczka": "flaticon-briefcase",
-        "test": "flaticon-test"
+        "test": "flaticon-test",
+        "tygrys": "flaticon-tiger",
+        "tukan": "flaticon-toucan"
       },
+      "w": {
+        "wąż": "flaticon-snake"
+      }
       "ż": {
-        "żuk": "flaticon-beetle"
+        "żuk": "flaticon-beetle",
+        "żaba": "flaticon-frog",
+        "żyrafa": "flaticon-giraffe"
       }
     }
   },

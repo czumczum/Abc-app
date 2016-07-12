@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var letters = document.querySelectorAll(".abc i");
     var bigLetter = document.querySelector('h1.letter');
     var count = 0;
+    var letterMax = 10; //The user set the max length of letters in one word
 
 
     //Functions
