@@ -23,6 +23,9 @@ h1 {
 	color: $mainColor;
 	display: flex;
 	align-self: flex-start;
+	@media (min-width: $thirDim) {
+		font-size: 3vw;
+	}
 	em {
 		font-style: normal;
 		color: $emColor;
@@ -77,14 +80,27 @@ header {
 	p {
 		margin: 10px 0;
 	}
+	i {
+		font-size: 10vw;
+		@media all and (min-width: $seconDim) {
+			font-size: 7vw;
+		}
+		@media all and (orientation:landscape) {
+			font-size: 7vw;
+		}
+	}
 	@media all and (orientation:portrait) {
 		align-items: flex-start;
 	}
 	@media all and (orientation:portrait)  and (min-width: $firstDim) {
 		height: 10vh;
-	}
+		}
 	@media all and (min-width: $thirDim) {
 		height: 10vh;
+		align-items: flex-start;
+		i {
+			font-size: 5vw;
+		}
 	}
 }
 
