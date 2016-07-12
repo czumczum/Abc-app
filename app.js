@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Functions
     var loadPage = function (el) {
-        console.log(el);
         bigLetter.innerText = el;
         var showLetter;
         var counter = 0;
@@ -32,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             counter++;
         }
         var letters = document.querySelectorAll(".abc i");
+        shakeOrNot();
         var count = 0;
         showLetter = function (e) {
             if (letters[count].classList.contains('is-paused')) {
@@ -40,9 +40,20 @@ document.addEventListener("DOMContentLoaded", function () {
             count++;
             if (count == letters.length) {
                 bigLetter.removeEventListener("click", showLetter)
+                bigLetter.classList.remove("shake-slow");
+
             }
         };
         bigLetter.addEventListener("click", showLetter);
+    };
+    // Function for checking that it's worth to shake or not
+    var shakeOrNot = function() {
+        var letters = document.querySelectorAll(".abc i");
+        if (letters.length > 0) {
+            bigLetter.classList.add("shake-slow");
+        } else if (bigLetter.classList.contains("shake-slow")) {
+            bigLetter.classList.remove("shake-slow");
+        }
     };
 
     //Menu handling
@@ -76,15 +87,18 @@ document.addEventListener("DOMContentLoaded", function () {
         var buttons = document.querySelectorAll('nav h1');
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("click", function () {
-                screen.style.display = "none";
+                screen.classList.add("none");
                 var letter = this.innerText.toLowerCase();
-                loadPage(letter);
+                setTimeout(loadPage(letter), 2000); //TODO delay dla tej funkcji, żeby mogło znikać
                 document.querySelector('main').style.display = "flex";
                 document.querySelector('footer').style.display = footerDisplay;
 
             })
         }
     };
+     var letterTip = function() {
+         
+     }
 
     settings.addEventListener("click", menuShow);
     
