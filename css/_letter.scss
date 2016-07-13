@@ -21,6 +21,7 @@
   text-transform: uppercase;
   cursor: pointer;
   flex-basis: 70%;
+  transition: 1s;
   &.clicked {
     font-size: 7vw;
     width: 50vw;
@@ -38,6 +39,9 @@
         @media all and (orientation:portrait) {
           font-size: 10vw;
         }
+    }
+    &.none {
+      opacity: 0;
     }
   }
   @media (min-width: $thirDim) {

@@ -218,6 +218,7 @@ nav {
 	}
 }
 .puzzle {
+	width: 60vw;
 	&.none {
 		opacity: 0;
 		transform: scale(0.1);
@@ -241,9 +242,10 @@ nav {
 	background-color: #ccc;
 	border: dashed 4px transparent;
 	border-radius: 4px;
-	margin: 5vh auto 5vh;
+	margin: 5vh 1vw;
 	padding: 1vw;
 	width: 80%;
+	display: inline-flex;
 	transition: background-color 0.3s;
 }
 
@@ -264,6 +266,7 @@ nav {
 	width: 5vw;
 	height: 5vw;
 	padding: 1vw;
+	margin: 5vh 1vw;
 	text-transform: uppercase;
 	font-family: $textFont;
 	font-size: 5vw;

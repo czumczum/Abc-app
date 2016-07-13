@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var navMenu = document.querySelectorAll('footer h1');
     var settings = document.querySelector("header i");
     var puzzleDiv = document.querySelector('.puzzle');
+    var puzzleDel = function () {};
     var shakeOrNot;
     var showLetter;
     var currentWord = "";
@@ -15,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     //Functions
     var loadPage = function (el) { //loads all of page content from db object
         bigLetter.innerText = el;
+        bigLetter.style.display = "flex";
+        puzzleDel();
         var counter = 0;
         var toRemove = document.querySelectorAll('.abc p');
         if (toRemove != []) { //removes previous screen (if there is any)
@@ -30,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
             icon.addEventListener("click", letterTip);
             icon.addEventListener("click", function() {
                 currentWord = this.dataset.key;
-                console.log(currentWord);
                 puzzle();
             });
             var paragraf = document.createElement("p");
@@ -81,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
     var menuShow = function (e) {
+        puzzleDel();
         if (document.querySelector("nav") != null) {
             var toRemove = document.querySelector('nav');
             toRemove.parentNode.removeChild(toRemove);
@@ -117,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     //Tips for each pic
-     var letterTip = function() {
+    var letterTip = function() {
          removeTip(); //remove previous tip (if there's any)
          var word = "";
          if (bigLetter.innerText.length > 1) { //for words with two first letters (one vowel, like 'sh')
@@ -132,16 +135,84 @@ document.addEventListener("DOMContentLoaded", function () {
          em.innerText = word;
          bigLetter.classList.remove("shake-slow");
      };
-     var removeTip = function () {
+    var removeTip = function () {
          var toRemove = bigLetter.querySelector('em');
          if (toRemove != null) {
              toRemove.parentNode.removeChild(toRemove);
          }
      };
+    puzzleDel = function () {
+        if (puzzleDiv.classList.contains("done")) {
+            var hrRemove = puzzleDiv.querySelector('hr');
+            puzzleDiv.removeChild(hrRemove);
+            var divs = puzzleDiv.querySelectorAll('div');
+            for (var i = 0; i < divs.length; i++) {
+                var toRemove = divs[i];
+                toRemove.parentNode.removeChild(toRemove);
+            }
+            puzzleDiv.classList.remove("done");
+        }
+    };
 
      var puzzle = function () {
          puzzleDiv.classList.remove("none");
+         bigLetter.classList.add("none");
+         window.setTimeout(function() {
+             bigLetter.style.display = "none";
+         }, 1000);
+         puzzleDel();
          if (currentWord != "") {
+             for (var i in currentWord) {
+                 var letter = currentWord.charAt(i);
+                 var newDiv = document.createElement('div');
+                 newDiv.classList.add('dropzone');
+                 newDiv.setAttribute('id', 'outer-dropzone');
+                 newDiv.setAttribute("data-letter", letter);
+                 puzzleDiv.appendChild(newDiv);
+                 // enable draggables to be dropped into this
+                 var acceptLtr = "#" + newDiv.dataset.letter;
+                 console.log(acceptLtr);
+                 interact(newDiv).dropzone({
+                     // only accept elements matching this CSS selector
+                     accept: acceptLtr,
+                     // Require a 50% element overlap for a drop to be possible
+                     overlap: 0.5,
+
+                     // listen for drop related events:
+
+                     ondropactivate: function (event) {
+                         // add active dropzone feedback
+                         event.target.classList.add('drop-active');
+                     },
+                     ondragenter: function (event) {
+                         var draggableElement = event.relatedTarget,
+                             dropzoneElement = event.target;
+
+                         // feedback the possibility of a drop
+                         dropzoneElement.classList.add('drop-target');
+                         draggableElement.classList.add('can-drop');
+                         //          draggableElement.textContent = 'Dragged in'; //don't need it
+                     },
+                     ondragleave: function (event) {
+                         // remove the drop feedback style
+                         event.target.classList.remove('drop-target');
+                         event.relatedTarget.classList.remove('can-drop');
+                         //          event.relatedTarget.textContent = 'Dragged out'; //dont need either
+                     },
+                     ondrop: function (event) {
+                         event.relatedTarget.style.color = "#2bb5c1";
+                         event.relatedTarget.style.backgroundColor = "white";
+
+                     },
+                     ondropdeactivate: function (event) {
+                         // remove active dropzone feedback
+                         event.target.classList.remove('drop-active');
+                         event.target.classList.remove('drop-target');
+                     }
+                 })
+             }
+             var hr = document.createElement('hr');
+             puzzleDiv.appendChild(hr);
              for (var i in currentWord) {
                  var letter = currentWord.charAt(i);
                  var newDiv = document.createElement('div');
@@ -151,7 +222,53 @@ document.addEventListener("DOMContentLoaded", function () {
                  newDiv.innerText = letter;
                  puzzleDiv.appendChild(newDiv);
              }
+             puzzleDiv.classList.add("done");
          }
+         // target elements with the "draggable" class
+         interact('.draggable')
+             .draggable({
+                 // enable inertial throwing
+                 inertia: true,
+                 // keep the element within the area of it's parent
+                 restrict: {
+                     restriction: "parent",
+                     endOnly: true,
+                     elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+                 },
+                 // enable autoScroll
+                 autoScroll: true,
+
+                 // call this function on every dragmove event
+                 onmove: dragMoveListener,
+                 // call this function on every dragend event
+                 onend: function (event) {
+                     var textEl = event.target.querySelector('p');
+
+                     textEl && (textEl.textContent =
+                         'moved a distance of '
+                         + (Math.sqrt(event.dx * event.dx +
+                             event.dy * event.dy)|0) + 'px');
+                 }
+             });
+         function dragMoveListener (event) {
+             var target = event.target,
+                 // keep the dragged position in the data-x/data-y attributes
+                 x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+                 y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+             // translate the element
+             target.style.webkitTransform =
+                 target.style.transform =
+                     'translate(' + x + 'px, ' + y + 'px)';
+
+             // update the posiion attributes
+             target.setAttribute('data-x', x);
+             target.setAttribute('data-y', y);
+         }
+
+         // this is used later in the resizing and gesture demos
+         window.dragMoveListener = dragMoveListener;
+
      };
     settings.addEventListener("click", menuShow);
     
@@ -307,7 +424,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     };
 
-    loadPage("m");
+loadPage('a');
 });
-
-//988

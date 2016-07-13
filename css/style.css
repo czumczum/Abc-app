@@ -1486,7 +1486,8 @@ Creation date: 22/06/2016 15:38
   justify-content: center;
   text-transform: uppercase;
   cursor: pointer;
-  flex-basis: 70%; }
+  flex-basis: 70%;
+  transition: 1s; }
   .letter.clicked {
     font-size: 7vw;
     width: 50vw;
@@ -1504,6 +1505,8 @@ Creation date: 22/06/2016 15:38
       @media all and (orientation: portrait) {
         .letter.clicked em {
           font-size: 10vw; } }
+    .letter.clicked.none {
+      opacity: 0; }
   @media (min-width: 1024px) {
     .letter {
       font-size: 25vw;
@@ -1697,10 +1700,12 @@ nav {
       nav h1 {
         font-size: 18vw; } }
 
-.puzzle.none {
-  opacity: 0;
-  transform: scale(0.1);
-  transition: all 1s cubic-bezier(0.4, 0, 1, 0.29); }
+.puzzle {
+  width: 60vw; }
+  .puzzle.none {
+    opacity: 0;
+    transform: scale(0.1);
+    transition: all 1s cubic-bezier(0.4, 0, 1, 0.29); }
 
 .puzzle-letters {
   display: flex;
@@ -1717,9 +1722,10 @@ nav {
   background-color: #ccc;
   border: dashed 4px transparent;
   border-radius: 4px;
-  margin: 5vh auto 5vh;
+  margin: 5vh 1vw;
   padding: 1vw;
   width: 80%;
+  display: inline-flex;
   transition: background-color 0.3s; }
 
 .drop-active {
@@ -1737,6 +1743,7 @@ nav {
   width: 5vw;
   height: 5vw;
   padding: 1vw;
+  margin: 5vh 1vw;
   text-transform: uppercase;
   font-family: "PT Serif", serif;
   font-size: 5vw;
