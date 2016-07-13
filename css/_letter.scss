@@ -1,0 +1,53 @@
+.letter-div {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @media all and (orientation:portrait) {
+    height: 30vh;
+    width: 100vw;
+    flex-direction: row;
+  }
+    p {
+    margin: 2vh 5vw;
+  }
+}
+
+.letter {
+  font-family: 'PT Serif', serif;
+  font-size: 30vw;
+  width: 50vw;
+  justify-content: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-basis: 70%;
+  &.clicked {
+    font-size: 7vw;
+    width: 50vw;
+    justify-content: center;
+    align-self: flex-start;
+    @media all and (orientation:portrait) {
+      width: 80vw;
+      font-size: 10vw;
+    }
+      em {
+      font-size: 7vw;
+      letter-spacing: 5px;
+      display: inline-flex;
+      color: $emColor;
+        @media all and (orientation:portrait) {
+          font-size: 10vw;
+        }
+    }
+  }
+  @media (min-width: $thirDim) {
+    font-size: 25vw;
+    align-self: center;
+  }
+  @media (min-width: $forthDim) {
+    font-size: 20vw;
+  }
+  @media all and (orientation:portrait) {
+    width: 100vw;
+  }
+}

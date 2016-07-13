@@ -1250,6 +1250,271 @@ Creation date: 22/06/2016 15:35
   font-family: "Flaticon-fairy";
   content: "\f122"; }
 
+/*
+Flaticon icon font: Flaticon
+Creation date: 22/06/2016 15:38
+*/
+@font-face {
+  font-family: "Flaticon-game";
+  src: url("./fonts/game/Flaticon.eot");
+  src: url("./fonts/game/Flaticon.eot?#iefix") format("embedded-opentype"), url("./fonts/game/Flaticon.woff") format("woff"), url("./fonts/game/Flaticon.ttf") format("truetype"), url("./fonts/game/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: "Flaticon-game";
+    src: url("./fonts/game/Flaticon.svg#Flaticon") format("svg"); } }
+.fi:before {
+  display: inline-block;
+  font-family: "Flaticon-game";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+.flaticon-alien:before {
+  font-family: "Flaticon-game";
+  content: "\f100"; }
+
+.flaticon-arrow:before {
+  font-family: "Flaticon-game";
+  content: "\f101"; }
+
+.flaticon-axe:before {
+  font-family: "Flaticon-game";
+  content: "\f102"; }
+
+.flaticon-bishop:before {
+  font-family: "Flaticon-game";
+  content: "\f103"; }
+
+.flaticon-bone:before {
+  font-family: "Flaticon-game";
+  content: "\f104"; }
+
+.flaticon-bow:before {
+  font-family: "Flaticon-game";
+  content: "\f105"; }
+
+.flaticon-brick:before {
+  font-family: "Flaticon-game";
+  content: "\f106"; }
+
+.flaticon-bricks:before {
+  font-family: "Flaticon-game";
+  content: "\f107"; }
+
+.flaticon-castle:before {
+  font-family: "Flaticon-game";
+  content: "\f108"; }
+
+.flaticon-checkmate:before {
+  font-family: "Flaticon-game";
+  content: "\f109"; }
+
+.flaticon-chess-board:before {
+  font-family: "Flaticon-game";
+  content: "\f10a"; }
+
+.flaticon-clock:before {
+  font-family: "Flaticon-game";
+  content: "\f10b"; }
+
+.flaticon-clubs:before {
+  font-family: "Flaticon-game";
+  content: "\f10c"; }
+
+.flaticon-coin:before {
+  font-family: "Flaticon-game";
+  content: "\f10d"; }
+
+.flaticon-diamond:before {
+  font-family: "Flaticon-game";
+  content: "\f10e"; }
+
+.flaticon-dices:before {
+  font-family: "Flaticon-game";
+  content: "\f10f"; }
+
+.flaticon-dominoes:before {
+  font-family: "Flaticon-game";
+  content: "\f110"; }
+
+.flaticon-donkey:before {
+  font-family: "Flaticon-game";
+  content: "\f111"; }
+
+.flaticon-flower:before {
+  font-family: "Flaticon-game";
+  content: "\f112"; }
+
+.flaticon-ghost:before {
+  font-family: "Flaticon-game";
+  content: "\f113"; }
+
+.flaticon-hearts:before {
+  font-family: "Flaticon-game";
+  content: "\f114"; }
+
+.flaticon-helmet:before {
+  font-family: "Flaticon-game";
+  content: "\f115"; }
+
+.flaticon-ingot:before {
+  font-family: "Flaticon-game";
+  content: "\f116"; }
+
+.flaticon-king:before {
+  font-family: "Flaticon-game";
+  content: "\f117"; }
+
+.flaticon-knight:before {
+  font-family: "Flaticon-game";
+  content: "\f118"; }
+
+.flaticon-metroid:before {
+  font-family: "Flaticon-game";
+  content: "\f119"; }
+
+.flaticon-mushroom:before {
+  font-family: "Flaticon-game";
+  content: "\f11a"; }
+
+.flaticon-mushroom-1:before {
+  font-family: "Flaticon-game";
+  content: "\f11b"; }
+
+.flaticon-mushroom-2:before {
+  font-family: "Flaticon-game";
+  content: "\f11c"; }
+
+.flaticon-pacman:before {
+  font-family: "Flaticon-game";
+  content: "\f11d"; }
+
+.flaticon-pacman-1:before {
+  font-family: "Flaticon-game";
+  content: "\f11e"; }
+
+.flaticon-pawn:before {
+  font-family: "Flaticon-game";
+  content: "\f11f"; }
+
+.flaticon-pick:before {
+  font-family: "Flaticon-game";
+  content: "\f120"; }
+
+.flaticon-pinball:before {
+  font-family: "Flaticon-game";
+  content: "\f121"; }
+
+.flaticon-ping-pong:before {
+  font-family: "Flaticon-game";
+  content: "\f122"; }
+
+.flaticon-pipe:before {
+  font-family: "Flaticon-game";
+  content: "\f123"; }
+
+.flaticon-poker:before {
+  font-family: "Flaticon-game";
+  content: "\f124"; }
+
+.flaticon-poker-chip:before {
+  font-family: "Flaticon-game";
+  content: "\f125"; }
+
+.flaticon-puzzle:before {
+  font-family: "Flaticon-game";
+  content: "\f126"; }
+
+.flaticon-queen:before {
+  font-family: "Flaticon-game";
+  content: "\f127"; }
+
+.flaticon-rook:before {
+  font-family: "Flaticon-game";
+  content: "\f128"; }
+
+.flaticon-shovel:before {
+  font-family: "Flaticon-game";
+  content: "\f129"; }
+
+.flaticon-spades:before {
+  font-family: "Flaticon-game";
+  content: "\f12a"; }
+
+.flaticon-sword:before {
+  font-family: "Flaticon-game";
+  content: "\f12b"; }
+
+.flaticon-symbol:before {
+  font-family: "Flaticon-game";
+  content: "\f12c"; }
+
+.flaticon-symbols:before {
+  font-family: "Flaticon-game";
+  content: "\f12d"; }
+
+.flaticon-zombie:before {
+  font-family: "Flaticon-game";
+  content: "\f12e"; }
+
+.letter-div {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+  @media all and (orientation: portrait) {
+    .letter-div {
+      height: 30vh;
+      width: 100vw;
+      flex-direction: row; } }
+  .letter-div p {
+    margin: 2vh 5vw; }
+
+.letter {
+  font-family: 'PT Serif', serif;
+  font-size: 30vw;
+  width: 50vw;
+  justify-content: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-basis: 70%; }
+  .letter.clicked {
+    font-size: 7vw;
+    width: 50vw;
+    justify-content: center;
+    align-self: flex-start; }
+    @media all and (orientation: portrait) {
+      .letter.clicked {
+        width: 80vw;
+        font-size: 10vw; } }
+    .letter.clicked em {
+      font-size: 7vw;
+      letter-spacing: 5px;
+      display: inline-flex;
+      color: #2bb5c1; }
+      @media all and (orientation: portrait) {
+        .letter.clicked em {
+          font-size: 10vw; } }
+  @media (min-width: 1024px) {
+    .letter {
+      font-size: 25vw;
+      align-self: center; } }
+  @media (min-width: 1200px) {
+    .letter {
+      font-size: 20vw; } }
+  @media all and (orientation: portrait) {
+    .letter {
+      width: 100vw; } }
+
 * {
   padding: 0;
   margin: 0; }
@@ -1273,34 +1538,6 @@ h1 {
   h1 em {
     font-style: normal;
     color: #2bb5c1; }
-
-.letter {
-  font-family: 'PT Serif', serif;
-  font-size: 30vw;
-  width: 50vw;
-  justify-content: center;
-  text-transform: uppercase;
-  cursor: pointer; }
-  .letter.clicked {
-    font-size: 7vw;
-    width: 50vw;
-    justify-content: center;
-    align-self: center; }
-    .letter.clicked em {
-      font-size: 7vw;
-      letter-spacing: 5px;
-      display: inline-flex;
-      color: #2bb5c1; }
-  @media (min-width: 1024px) {
-    .letter {
-      font-size: 25vw;
-      align-self: center; } }
-  @media (min-width: 1200px) {
-    .letter {
-      font-size: 20vw; } }
-  @media all and (orientation: portrait) {
-    .letter {
-      width: 100vw; } }
 
 i {
   font-family: "Flaticon", serif;

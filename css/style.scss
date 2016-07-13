@@ -5,6 +5,9 @@
 @import "fonts/animals/flaticon";
 @import "fonts/city/flaticon";
 @import "fonts/fairy/flaticon";
+@import "fonts/game/flaticon";
+@import "letter";
+
 
 * {
 	padding: 0;
@@ -31,37 +34,6 @@ h1 {
 		color: $emColor;
 	}
 }
-.letter {
-		font-family: 'PT Serif', serif;
-		font-size: 30vw;
-		width: 50vw;
-		justify-content: center;
-		text-transform: uppercase;
-		cursor: pointer;
-		&.clicked {
-			font-size: 7vw;
-			width: 50vw;
-			justify-content: center;
-			align-self: center;
-			em {
-				font-size: 7vw;
-				letter-spacing: 5px;
-				display: inline-flex;
-				color: $emColor;
-			}
-		}
-		@media (min-width: $thirDim) {
-			font-size: 25vw;
-			align-self: center;
-		}
-		@media (min-width: $forthDim) {
-			font-size: 20vw;
-		}
-		@media all and (orientation:portrait) {
-			width: 100vw;
-		}
-}
-
 i {
 	font-family: "Flaticon", serif;
 	font-size: 6vw;

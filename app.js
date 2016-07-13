@@ -11,16 +11,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     //Functions
-    var loadPage = function (el) {
+    var loadPage = function (el) { //loads all of page content from db object
         bigLetter.innerText = el;
         var counter = 0;
         var toRemove = document.querySelectorAll('.abc p');
-        if (toRemove != []) {
+        if (toRemove != []) { //removes previous screen (if there is any)
             for (var i = 0; i < toRemove.length; i++) {
                 toRemove[i].parentNode.removeChild(toRemove[i]);
             }
         }
-        for (var key in lettersDb[el]) {
+        for (var key in lettersDb[el]) { //adds the icons to main screen (unseen)
             var icon = document.createElement("i");
             icon.classList.add(lettersDb[el][key]);
             icon.classList.add("hidden");
@@ -30,21 +30,22 @@ document.addEventListener("DOMContentLoaded", function () {
             paragraf.appendChild(icon);
             letterSpace.appendChild(paragraf);
             icon.dataset.key = key;
-            counter++;
+            counter++
+            if (counter >= 6) {
+                break;
+            }
         }
         var letters = document.querySelectorAll(".abc i");
-        shakeOrNot();
+        shakeOrNot(); //checks if the big letter needs to shake
         var count = 0;
-        showLetter = function (e) {
-            shakeOrNot();
+        showLetter = function (e) { //shows the icons
+            shakeOrNot(); //checks if the big letter still needs to shake
             if (letters[count].classList.contains('is-paused')) {
                 letters[count].classList.remove('is-paused');
             }
             count++;
-            if (count == letters.length) {
-                bigLetter.removeEventListener("click", showLetter);
+            if (count == letters.length) { //end of the icons, freeze
                 bigLetter.classList.remove("shake-slow");
-
             }
         };
         bigLetter.addEventListener("click", showLetter);
@@ -53,13 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function for checking that it's worth to shake or not AND removes 'clicked' class
     shakeOrNot = function() {
         var letters = document.querySelectorAll(".abc i");
+        var unseenLetter = document.querySelectorAll('i.is-paused');
         if (bigLetter.classList.contains("clicked")) {
             removeTip(); //if clicked is sentenced to removed, tip ('em') will be also remove
             bigLetter.classList.remove("clicked");
-
         }
-        if (letters.length > 0) {
-            bigLetter.classList.add("shake-slow");
+        if (letters.length > 0 && letters.length > (letters.length - unseenLetter.length)) {
+            bigLetter.classList.add("shake-slow"); //checks if there's still more letters to show
         } else if (bigLetter.classList.contains("shake-slow")) {
             bigLetter.classList.remove("shake-slow");
         }
@@ -110,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Tips for each pic
      var letterTip = function() {
+         removeTip(); //remove previous tip (if there's any)
          var word = "";
          if (bigLetter.innerText.length > 1) { //for words with two first letters (one vowel, like 'sh')
              word = this.dataset.key.slice(2);
@@ -125,7 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
      };
      var removeTip = function () {
          var toRemove = bigLetter.querySelector('em');
-         console.log(toRemove);
          if (toRemove != null) {
              toRemove.parentNode.removeChild(toRemove);
          }
@@ -146,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "autobus": "flaticon-bus"
     },
         "b": {
-        "balon": "flaticon",
+            "balon": "flaticon",
             "byk": "flaticon",
             "bocian": "brat",
             "brat": "flaticon",
@@ -155,14 +156,16 @@ document.addEventListener("DOMContentLoaded", function () {
             "but": "flaticon-cinderella-shoe"
     },
         "c": {
-        "cyrk": "flaticon-circus",
-            "cyklop": "flaticon-cyclops"
+            "cyrk": "flaticon-circus",
+            "cyklop": "flaticon-cyclops",
+            "cegła": "flaticon-brick"
     },
         "cz": {
         "czapka": "flaticon-mortarboard"
     },
         "d": {
-        "dym": "flaticon-nature",
+            "dym": "flaticon-nature",
+            "duch": "flaticon-ghost"
     },
         "e": {
         "eryk": "flaticon-boy-5",
@@ -176,8 +179,12 @@ document.addEventListener("DOMContentLoaded", function () {
         "g": {
         "globus": "flaticon-earth-globe",
             "gumka": "flaticon-eraser",
-            "gimbus": "flaticon-school-bus"
+            "gimbus": "flaticon-school-bus",
+            "grzyb": "flaticon-mushroom-1"
     },
+        "h": {
+        "hełm": "flaticon-helmet"
+        },
         "i": {
         "irlandia": "flaticon-leprechaun",
     },
@@ -191,12 +198,18 @@ document.addEventListener("DOMContentLoaded", function () {
             "kura": "flaticon-hen",
             "królik": "flaticon-rabbit",
             "kobra": "flaticon-cobra",
-            "korona": "flaticon-crown"
+            "korona": "flaticon-crown",
+            "kość": "flaticon-bone",
+            "karty": "flaticon-poker"
     },
         "l": {
         "lew": "flaticon-lion",
             "lama": "flaticon-llama",
             "leniwiec": "flaticon-sloth"
+    },
+        "ł": {
+            "łuk": "flaticon-bow",
+            "łopata": "flaticon-shovel"
     },
         "m": {
         "mumia": "flaticon-mummy-head-with-opened-eyes-for-halloween",
@@ -206,7 +219,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "medal": "flaticon-medal",
             "motyl": "flaticon-butterfly",
             "małpa": "flaticon-monkey",
-            "mysz": "flaticon-mouse"
+            "mysz": "flaticon-mouse",
+            "miecz": "flaticon-sword"
     },
         "n": {
         "notes": "flaticon-notebook",
@@ -241,8 +255,9 @@ document.addEventListener("DOMContentLoaded", function () {
             "smok": "flaticon-dragon"
     },
         "sz": {
-        "szkoła": "flaticon-school",
-            "szop": "flaticon-racoon"
+            "szkoła": "flaticon-school",
+            "szop": "flaticon-racoon",
+            "szachy": "flaticon-chess-board"
     },
         "ś": {
         "świnia": "flaticon-pig"
@@ -253,14 +268,16 @@ document.addEventListener("DOMContentLoaded", function () {
             "teczka": "flaticon-briefcase",
             "test": "flaticon-test",
             "tygrys": "flaticon-tiger",
-            "tukan": "flaticon-toucan"
+            "tukan": "flaticon-toucan",
+            "topór": "flaticon-axe"
     },
         "w": {
         "wąż": "flaticon-snake"
     },
         "z": {
         "znak": "flaticon-stop",
-            "zamek": "flaticon-castle"
+            "zamek": "flaticon-castle",
+            "złoto": "flaticon-ingot"
     },
         "ż": {
         "żuk": "flaticon-beetle",

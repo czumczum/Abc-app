@@ -1,0 +1,133 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 22/06/2016 15:38
+    */
+
+    @font-face {
+  font-family: "Flaticon-game";
+  src: url("./fonts/game/Flaticon.eot");
+  src: url("./fonts/game/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./fonts/game/Flaticon.woff") format("woff"),
+       url("./fonts/game/Flaticon.ttf") format("truetype"),
+       url("./fonts/game/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon-game";
+    src: url("./fonts/game/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon-game";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-alien:before { font-family: "Flaticon-game"; content: "\f100"; }
+.flaticon-arrow:before { font-family: "Flaticon-game"; content: "\f101"; }
+.flaticon-axe:before { font-family: "Flaticon-game"; content: "\f102"; }
+.flaticon-bishop:before { font-family: "Flaticon-game"; content: "\f103"; }
+.flaticon-bone:before { font-family: "Flaticon-game"; content: "\f104"; }
+.flaticon-bow:before { font-family: "Flaticon-game"; content: "\f105"; }
+.flaticon-brick:before { font-family: "Flaticon-game"; content: "\f106"; }
+.flaticon-bricks:before { font-family: "Flaticon-game"; content: "\f107"; }
+.flaticon-castle:before { font-family: "Flaticon-game"; content: "\f108"; }
+.flaticon-checkmate:before { font-family: "Flaticon-game"; content: "\f109"; }
+.flaticon-chess-board:before { font-family: "Flaticon-game"; content: "\f10a"; }
+.flaticon-clock:before { font-family: "Flaticon-game"; content: "\f10b"; }
+.flaticon-clubs:before { font-family: "Flaticon-game"; content: "\f10c"; }
+.flaticon-coin:before { font-family: "Flaticon-game"; content: "\f10d"; }
+.flaticon-diamond:before { font-family: "Flaticon-game"; content: "\f10e"; }
+.flaticon-dices:before { font-family: "Flaticon-game"; content: "\f10f"; }
+.flaticon-dominoes:before { font-family: "Flaticon-game"; content: "\f110"; }
+.flaticon-donkey:before { font-family: "Flaticon-game"; content: "\f111"; }
+.flaticon-flower:before { font-family: "Flaticon-game"; content: "\f112"; }
+.flaticon-ghost:before { font-family: "Flaticon-game"; content: "\f113"; }
+.flaticon-hearts:before { font-family: "Flaticon-game"; content: "\f114"; }
+.flaticon-helmet:before { font-family: "Flaticon-game"; content: "\f115"; }
+.flaticon-ingot:before { font-family: "Flaticon-game"; content: "\f116"; }
+.flaticon-king:before { font-family: "Flaticon-game"; content: "\f117"; }
+.flaticon-knight:before { font-family: "Flaticon-game"; content: "\f118"; }
+.flaticon-metroid:before { font-family: "Flaticon-game"; content: "\f119"; }
+.flaticon-mushroom:before { font-family: "Flaticon-game"; content: "\f11a"; }
+.flaticon-mushroom-1:before { font-family: "Flaticon-game"; content: "\f11b"; }
+.flaticon-mushroom-2:before { font-family: "Flaticon-game"; content: "\f11c"; }
+.flaticon-pacman:before { font-family: "Flaticon-game"; content: "\f11d"; }
+.flaticon-pacman-1:before { font-family: "Flaticon-game"; content: "\f11e"; }
+.flaticon-pawn:before { font-family: "Flaticon-game"; content: "\f11f"; }
+.flaticon-pick:before { font-family: "Flaticon-game"; content: "\f120"; }
+.flaticon-pinball:before { font-family: "Flaticon-game"; content: "\f121"; }
+.flaticon-ping-pong:before { font-family: "Flaticon-game"; content: "\f122"; }
+.flaticon-pipe:before { font-family: "Flaticon-game"; content: "\f123"; }
+.flaticon-poker:before { font-family: "Flaticon-game"; content: "\f124"; }
+.flaticon-poker-chip:before { font-family: "Flaticon-game"; content: "\f125"; }
+.flaticon-puzzle:before { font-family: "Flaticon-game"; content: "\f126"; }
+.flaticon-queen:before { font-family: "Flaticon-game"; content: "\f127"; }
+.flaticon-rook:before { font-family: "Flaticon-game"; content: "\f128"; }
+.flaticon-shovel:before { font-family: "Flaticon-game"; content: "\f129"; }
+.flaticon-spades:before { font-family: "Flaticon-game"; content: "\f12a"; }
+.flaticon-sword:before { font-family: "Flaticon-game"; content: "\f12b"; }
+.flaticon-symbol:before { font-family: "Flaticon-game"; content: "\f12c"; }
+.flaticon-symbols:before { font-family: "Flaticon-game"; content: "\f12d"; }
+.flaticon-zombie:before { font-family: "Flaticon-game"; content: "\f12e"; }
+    
+    $font-Flaticon-alien: "\f100";
+    $font-Flaticon-arrow: "\f101";
+    $font-Flaticon-axe: "\f102";
+    $font-Flaticon-bishop: "\f103";
+    $font-Flaticon-bone: "\f104";
+    $font-Flaticon-bow: "\f105";
+    $font-Flaticon-brick: "\f106";
+    $font-Flaticon-bricks: "\f107";
+    $font-Flaticon-castle: "\f108";
+    $font-Flaticon-checkmate: "\f109";
+    $font-Flaticon-chess-board: "\f10a";
+    $font-Flaticon-clock: "\f10b";
+    $font-Flaticon-clubs: "\f10c";
+    $font-Flaticon-coin: "\f10d";
+    $font-Flaticon-diamond: "\f10e";
+    $font-Flaticon-dices: "\f10f";
+    $font-Flaticon-dominoes: "\f110";
+    $font-Flaticon-donkey: "\f111";
+    $font-Flaticon-flower: "\f112";
+    $font-Flaticon-ghost: "\f113";
+    $font-Flaticon-hearts: "\f114";
+    $font-Flaticon-helmet: "\f115";
+    $font-Flaticon-ingot: "\f116";
+    $font-Flaticon-king: "\f117";
+    $font-Flaticon-knight: "\f118";
+    $font-Flaticon-metroid: "\f119";
+    $font-Flaticon-mushroom: "\f11a";
+    $font-Flaticon-mushroom-1: "\f11b";
+    $font-Flaticon-mushroom-2: "\f11c";
+    $font-Flaticon-pacman: "\f11d";
+    $font-Flaticon-pacman-1: "\f11e";
+    $font-Flaticon-pawn: "\f11f";
+    $font-Flaticon-pick: "\f120";
+    $font-Flaticon-pinball: "\f121";
+    $font-Flaticon-ping-pong: "\f122";
+    $font-Flaticon-pipe: "\f123";
+    $font-Flaticon-poker: "\f124";
+    $font-Flaticon-poker-chip: "\f125";
+    $font-Flaticon-puzzle: "\f126";
+    $font-Flaticon-queen: "\f127";
+    $font-Flaticon-rook: "\f128";
+    $font-Flaticon-shovel: "\f129";
+    $font-Flaticon-spades: "\f12a";
+    $font-Flaticon-sword: "\f12b";
+    $font-Flaticon-symbol: "\f12c";
+    $font-Flaticon-symbols: "\f12d";
+    $font-Flaticon-zombie: "\f12e";
