@@ -5,8 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var bigLetter = document.querySelector('h1.letter');
     var navMenu = document.querySelectorAll('footer h1');
     var settings = document.querySelector("header i");
+    var puzzleDiv = document.querySelector('.puzzle');
     var shakeOrNot;
     var showLetter;
+    var currentWord = "";
 //    var letterMax = 10; //The user set the max length of letters in one word
 
 
@@ -26,6 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
             icon.classList.add("hidden");
             icon.classList.add("is-paused");
             icon.addEventListener("click", letterTip);
+            icon.addEventListener("click", function() {
+                currentWord = this.dataset.key;
+                console.log(currentWord);
+                puzzle();
+            });
             var paragraf = document.createElement("p");
             paragraf.appendChild(icon);
             letterSpace.appendChild(paragraf);
@@ -132,6 +139,20 @@ document.addEventListener("DOMContentLoaded", function () {
          }
      };
 
+     var puzzle = function () {
+         puzzleDiv.classList.remove("none");
+         if (currentWord != "") {
+             for (var i in currentWord) {
+                 var letter = currentWord.charAt(i);
+                 var newDiv = document.createElement('div');
+                 newDiv.classList.add('draggable');
+                 newDiv.classList.add('drag-drop');
+                 newDiv.setAttribute("id", letter);
+                 newDiv.innerText = letter;
+                 puzzleDiv.appendChild(newDiv);
+             }
+         }
+     };
     settings.addEventListener("click", menuShow);
     
     //Database
