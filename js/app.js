@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var navMenu = document.querySelectorAll('footer h1');
     var settings = document.querySelector("header i");
     var puzzleDiv = document.querySelector('.puzzle');
+    var puzzleIcon = document.querySelector('.flaticon-puzzle');
     var puzzleDel = function () {};
     var shakeOrNot;
     var showLetter;
@@ -33,7 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
             icon.addEventListener("click", letterTip);
             icon.addEventListener("click", function() {
                 currentWord = this.dataset.key;
-                puzzle();
+                puzzleDel();
+                bigLetter.style.display = "flex";
+                bigLetter.classList.remove("none");
             });
             var paragraf = document.createElement("p");
             paragraf.appendChild(icon);
@@ -278,6 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
      };
     settings.addEventListener("click", menuShow);
+    puzzleIcon.addEventListener("click", puzzle);
     
     //Database
     var lettersDb =
