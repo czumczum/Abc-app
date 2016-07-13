@@ -5,13 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
     var bigLetter = document.querySelector('h1.letter');
     var navMenu = document.querySelectorAll('footer h1');
     var settings = document.querySelector("header i");
-    var letterMax = 10; //The user set the max length of letters in one word
+    var shakeOrNot;
+    var showLetter;
+//    var letterMax = 10; //The user set the max length of letters in one word
 
 
     //Functions
     var loadPage = function (el) {
         bigLetter.innerText = el;
-        var showLetter;
         var counter = 0;
         var toRemove = document.querySelectorAll('.abc p');
         if (toRemove != []) {
@@ -19,11 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 toRemove[i].parentNode.removeChild(toRemove[i]);
             }
         }
-        for (key in lettersDb[el]) {
+        for (var key in lettersDb[el]) {
             var icon = document.createElement("i");
             icon.classList.add(lettersDb[el][key]);
             icon.classList.add("hidden");
             icon.classList.add("is-paused");
+            icon.addEventListener("click", letterTip);
             var paragraf = document.createElement("p");
             paragraf.appendChild(icon);
             letterSpace.appendChild(paragraf);
@@ -34,21 +36,28 @@ document.addEventListener("DOMContentLoaded", function () {
         shakeOrNot();
         var count = 0;
         showLetter = function (e) {
+            shakeOrNot();
             if (letters[count].classList.contains('is-paused')) {
                 letters[count].classList.remove('is-paused');
             }
             count++;
             if (count == letters.length) {
-                bigLetter.removeEventListener("click", showLetter)
+                bigLetter.removeEventListener("click", showLetter);
                 bigLetter.classList.remove("shake-slow");
 
             }
         };
         bigLetter.addEventListener("click", showLetter);
     };
-    // Function for checking that it's worth to shake or not
-    var shakeOrNot = function() {
+
+    // Function for checking that it's worth to shake or not AND removes 'clicked' class
+    shakeOrNot = function() {
         var letters = document.querySelectorAll(".abc i");
+        if (bigLetter.classList.contains("clicked")) {
+            removeTip(); //if clicked is sentenced to removed, tip ('em') will be also remove
+            bigLetter.classList.remove("clicked");
+
+        }
         if (letters.length > 0) {
             bigLetter.classList.add("shake-slow");
         } else if (bigLetter.classList.contains("shake-slow")) {
@@ -62,8 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var letter = this.innerText.toLowerCase();
             loadPage(letter);
         })
-    };
-
+    }
     var menuShow = function (e) {
         if (document.querySelector("nav") != null) {
             var toRemove = document.querySelector('nav');
@@ -71,34 +79,57 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         document.querySelector('main').style.display = "none";
         var footer = document.querySelector('footer');
+        var footerDisplay;
         if (footer.clientWidth > 0) { //save the footer default display (none on mobile, flex on wider screens
-            var footerDisplay = "flex";
+            footerDisplay = "flex";
         } else {
-            var footerDisplay = "none";
-        };
+            footerDisplay = "none";
+        }
         footer.style.display = "none";
         var screen = document.createElement("nav");
         document.body.appendChild(screen);
-        for (key in lettersDb) {
+        for (var key in lettersDb) {
             var letterGap = document.createElement('h1');
             screen.appendChild(letterGap);
             letterGap.innerText = key;
-        };
+        }
         var buttons = document.querySelectorAll('nav h1');
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("click", function () {
                 screen.classList.add("none");
                 var letter = this.innerText.toLowerCase();
-                setTimeout(loadPage(letter), 2000); //TODO delay dla tej funkcji, żeby mogło znikać
-                document.querySelector('main').style.display = "flex";
-                document.querySelector('footer').style.display = footerDisplay;
-
+                window.setTimeout(function () {
+                    loadPage(letter);
+                    screen.style.display = "none";
+                    document.querySelector('main').style.display = "flex";
+                    document.querySelector('footer').style.display = footerDisplay;
+                }, 1000);
             })
         }
     };
+
+    //Tips for each pic
      var letterTip = function() {
-         
-     }
+         var word = "";
+         if (bigLetter.innerText.length > 1) { //for words with two first letters (one vowel, like 'sh')
+             word = this.dataset.key.slice(2);
+             console.log(word);
+         } else {
+             word = this.dataset.key.slice(1);
+         }
+         var em = document.createElement('em');
+         bigLetter.classList.add("clicked");
+         bigLetter.appendChild(em);
+         em.innerText = word;
+         bigLetter.classList.remove("shake-slow");
+     };
+     var removeTip = function () {
+         var toRemove = bigLetter.querySelector('em');
+         console.log(toRemove);
+         if (toRemove != null) {
+             toRemove.parentNode.removeChild(toRemove);
+         }
+     };
 
     settings.addEventListener("click", menuShow);
     
