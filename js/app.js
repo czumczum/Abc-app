@@ -142,10 +142,15 @@ document.addEventListener("DOMContentLoaded", function () {
          }
      };
     puzzleDel = function () {
-        if (puzzleDiv.classList.contains("done")) {
+        if (puzzleDiv.classList.contains("done")) { //checks if drag&drop is loaded
             var hrRemove = puzzleDiv.querySelector('hr');
             puzzleDiv.removeChild(hrRemove);
-            var divs = puzzleDiv.querySelectorAll('div');
+            var divs = puzzleDiv.querySelectorAll('.dropzone');
+            for (var i = 0; i < divs.length; i++) {
+                var toRemove = divs[i];
+                toRemove.parentNode.removeChild(toRemove);
+            }
+            divs = puzzleDiv.querySelectorAll('.drag-drop');
             for (var i = 0; i < divs.length; i++) {
                 var toRemove = divs[i];
                 toRemove.parentNode.removeChild(toRemove);
@@ -219,8 +224,10 @@ document.addEventListener("DOMContentLoaded", function () {
                  newDiv.classList.add('draggable');
                  newDiv.classList.add('drag-drop');
                  newDiv.setAttribute("id", letter);
+                 newDiv.style.order = Math.floor(Math.random() * currentWord.length);
+                 console.log(currentWord.length);
                  newDiv.innerText = letter;
-                 puzzleDiv.appendChild(newDiv);
+                 document.querySelector('.puzzle-div').appendChild(newDiv);
              }
              puzzleDiv.classList.add("done");
          }
@@ -231,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
                  inertia: true,
                  // keep the element within the area of it's parent
                  restrict: {
-                     restriction: "parent",
+                     restriction: ".letter-div",
                      endOnly: true,
                      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
                  },

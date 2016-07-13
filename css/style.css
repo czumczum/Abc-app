@@ -1707,6 +1707,9 @@ nav {
     transform: scale(0.1);
     transition: all 1s cubic-bezier(0.4, 0, 1, 0.29); }
 
+.puzzle-div {
+  display: flex; }
+
 .puzzle-letters {
   display: flex;
   justify-content: center; }
