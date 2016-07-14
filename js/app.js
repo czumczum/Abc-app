@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var puzzleIcon = document.querySelector('.flaticon-puzzle');
     var bulbIcon = document.querySelector('.flaticon-light-bulb');
     var profilePic = document.querySelector('header .kid');
+    var imgTip = document.createElement('img');
     var puzzleDel = function () {};
     var changeMe = function () {};
     var shakeOrNot;
@@ -23,10 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var eatThatCookie = function (name) {
         fullfilled = "";
         var cookie = typeof Cookies.get(name);
-        console.log(name + " " + cookie);
         if (cookie !== "undefined") {
             fullfilled = Cookies.get(name);
-            console.log(Cookies.get(name).split(" "));
             answered = fullfilled.split(" ");
         } else {
             answered = [];
@@ -52,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
             icon.classList.add(lettersDb[el][key]);
             if (fullfilled.indexOf(key) >= 0) {
                 var url = "img/" + icon.className.slice(9) + ".svg";
-                console.log('url');
                 icon.style.color = "transparent";
                 icon.style.backgroundImage = "url(" + url + ")";
             }
@@ -101,8 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (letters.length > 0 && letters.length > (letters.length - unseenLetter.length)) {
             bigLetter.classList.add("shake-slow"); //checks if there's still more letters to show
+            imgTip.setAttribute('src', 'img/tap.svg')
+            bigLetter.appendChild(imgTip);
         } else if (bigLetter.classList.contains("shake-slow")) {
             bigLetter.classList.remove("shake-slow");
+            bigLetter.removeChild(imgTip);
         }
     };
 
@@ -117,6 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
         puzzleDel();
         if (document.querySelector("nav") != null) { //hides menu if it's seen
             var toRemove = document.querySelector('nav');
+            toRemove.parentNode.removeChild(toRemove);
+        }
+        if (document.querySelector(".welcome") != null) { //hides menu if it's seen
+            var toRemove = document.querySelector('.welcome');
             toRemove.parentNode.removeChild(toRemove);
         }
         document.querySelector('main').style.display = "none";
@@ -153,6 +158,10 @@ document.addEventListener("DOMContentLoaded", function () {
         puzzleDel();
         if (document.querySelector(".welcome") != null) { //hides menu if it's seen
             var toRemove = document.querySelector('.welcome');
+            toRemove.parentNode.removeChild(toRemove);
+        }
+        if (document.querySelector("nav") != null) { //hides menu if it's seen
+            var toRemove = document.querySelector('nav');
             toRemove.parentNode.removeChild(toRemove);
         }
         document.querySelector('main').style.display = "none";
@@ -213,7 +222,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 kid = this.parentNode.className;
                 eatThatCookie(kid);
                 url = this.getAttribute("src");
-                console.log(url);
                 window.setTimeout(function () {
                     loadPage("a");
                     screen.style.display = "none";
@@ -408,12 +416,9 @@ document.addEventListener("DOMContentLoaded", function () {
                      count++
                  }
                  if (count == dropzone.length) {
-                     console.log(currentWord);
-                     console.log(typeof fullfilled);
                      fullfilled += " " + currentWord;
                      changeMe();
                      Cookies.set(kid, fullfilled, { expires: 7 });
-                     console.log(Cookies.get(kid));
                      return fullfilled;
                  }
              }

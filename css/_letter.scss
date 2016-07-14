@@ -22,6 +22,17 @@
   cursor: pointer;
   flex-basis: 70%;
   transition: 1s;
+  position: relative;
+  img {
+    position: absolute;
+    width: 8vw;
+    top: 30vh;
+    left: 30vw;
+    transform: skew(15deg);
+  }
+  &:hover img {
+    opacity: 0;
+  }
   &.clicked {
     font-size: 7vw;
     width: 50vw;

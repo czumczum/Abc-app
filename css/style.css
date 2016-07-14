@@ -1487,7 +1487,16 @@ Creation date: 22/06/2016 15:38
   text-transform: uppercase;
   cursor: pointer;
   flex-basis: 70%;
-  transition: 1s; }
+  transition: s;
+  position: relative; }
+  .letter img {
+    position: absolute;
+    width: 8vw;
+    top: 30vh;
+    left: 30vw;
+    transform: skew(15deg); }
+  .letter:hover img {
+    opacity: 0; }
   .letter.clicked {
     font-size: 7vw;
     width: 50vw;
