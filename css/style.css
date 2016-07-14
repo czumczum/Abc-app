@@ -1505,8 +1505,10 @@ Creation date: 22/06/2016 15:38
       @media all and (orientation: portrait) {
         .letter.clicked em {
           font-size: 10vw; } }
-    .letter.clicked.none {
-      opacity: 0; }
+  .letter.none {
+    opacity: 0;
+    transform: scale(0.01);
+    margin-top: -60vh; }
   @media (min-width: 1024px) {
     .letter {
       font-size: 25vw;
@@ -1596,6 +1598,12 @@ main {
     main {
       flex-direction: column;
       justify-content: space-around; } }
+  main i {
+    display: inline-flex;
+    margin-left: 5vw;
+    transition: 1s; }
+    main i.none {
+      opacity: 0; }
 
 .abc {
   display: flex;
@@ -1603,6 +1611,8 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   width: 50vw; }
+  .abc.small {
+    opacity: 0.3; }
   .abc p {
     margin: 1vw 3vw; }
   .abc i {
@@ -1701,14 +1711,15 @@ nav {
         font-size: 18vw; } }
 
 .puzzle {
-  width: 60vw; }
+  width: 50vw; }
   .puzzle.none {
     opacity: 0;
     transform: scale(0.1);
     transition: all 1s cubic-bezier(0.4, 0, 1, 0.29); }
 
 .puzzle-div {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
 
 .puzzle-letters {
   display: flex;
@@ -1731,8 +1742,14 @@ nav {
   display: inline-flex;
   transition: background-color 0.3s; }
 
+.dropzone-div {
+  display: flex;
+  width: 100vw; }
+
 .drop-active {
   border-color: #2bb5c1; }
+  .drop-active .notip {
+    border-color: transparent; }
 
 .drop-target {
   background-color: #29e;
@@ -1746,7 +1763,7 @@ nav {
   width: 5vw;
   height: 5vw;
   padding: 1vw;
-  margin: 5vh 1vw;
+  margin: 1vh 1vw;
   text-transform: uppercase;
   font-family: "PT Serif", serif;
   font-size: 5vw;

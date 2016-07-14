@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var settings = document.querySelector("header i");
     var puzzleDiv = document.querySelector('.puzzle');
     var puzzleIcon = document.querySelector('.flaticon-puzzle');
+    var bulbIcon = document.querySelector('.flaticon-light-bulb');
     var puzzleDel = function () {};
     var shakeOrNot;
     var showLetter;
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Functions
     var loadPage = function (el) { //loads all of page content from db object
         bigLetter.innerText = el;
+        currentWord = ""; //deletes the current word from previous letter
         bigLetter.style.display = "flex";
         puzzleDel();
         var counter = 0;
@@ -58,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
             count++;
             if (count == letters.length) { //end of the icons, freeze
                 bigLetter.classList.remove("shake-slow");
+                bigLetter.removeEventListener("click", showLetter);
             }
         };
         bigLetter.addEventListener("click", showLetter);
@@ -87,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     var menuShow = function (e) {
         puzzleDel();
-        if (document.querySelector("nav") != null) {
+        if (document.querySelector("nav") != null) { //hides menu if it's seen
             var toRemove = document.querySelector('nav');
             toRemove.parentNode.removeChild(toRemove);
         }
@@ -146,45 +149,46 @@ document.addEventListener("DOMContentLoaded", function () {
      };
     puzzleDel = function () {
         if (puzzleDiv.classList.contains("done")) { //checks if drag&drop is loaded
+            letterSpace.classList.remove("small");
+            bulbIcon.classList.add("none");
             var hrRemove = puzzleDiv.querySelector('hr');
             puzzleDiv.removeChild(hrRemove);
-            var divs = puzzleDiv.querySelectorAll('.dropzone');
-            for (var i = 0; i < divs.length; i++) {
-                var toRemove = divs[i];
-                toRemove.parentNode.removeChild(toRemove);
-            }
+            var toRemove = puzzleDiv.querySelector('.dropzone-div');
+            toRemove.parentNode.removeChild(toRemove);
             divs = puzzleDiv.querySelectorAll('.drag-drop');
             for (var i = 0; i < divs.length; i++) {
                 var toRemove = divs[i];
                 toRemove.parentNode.removeChild(toRemove);
             }
             puzzleDiv.classList.remove("done");
+            bigLetter.addEventListener("click", showLetter);
         }
     };
 
      var puzzle = function () {
-         puzzleDiv.classList.remove("none");
-         bigLetter.classList.add("none");
-         window.setTimeout(function() {
-             bigLetter.style.display = "none";
-         }, 1000);
-         puzzleDel();
          if (currentWord != "") {
+             letterSpace.classList.add('small');
+             puzzleDiv.classList.remove("none");
+             bigLetter.classList.add("none");
+             bigLetter.removeEventListener("click", showLetter);
+             puzzleDel();
+             bulbIcon.classList.remove("none");
+             var dropzone = document.createElement('div');
+             dropzone.classList.add("dropzone-div");
              for (var i in currentWord) {
                  var letter = currentWord.charAt(i);
                  var newDiv = document.createElement('div');
                  newDiv.classList.add('dropzone');
                  newDiv.setAttribute('id', 'outer-dropzone');
                  newDiv.setAttribute("data-letter", letter);
-                 puzzleDiv.appendChild(newDiv);
+                 dropzone.appendChild(newDiv);
                  // enable draggables to be dropped into this
                  var acceptLtr = "#" + newDiv.dataset.letter;
-                 console.log(acceptLtr);
                  interact(newDiv).dropzone({
                      // only accept elements matching this CSS selector
                      accept: acceptLtr,
-                     // Require a 50% element overlap for a drop to be possible
-                     overlap: 0.5,
+                     // Require a 75% element overlap for a drop to be possible
+                     overlap: 0.75,
 
                      // listen for drop related events:
 
@@ -208,8 +212,8 @@ document.addEventListener("DOMContentLoaded", function () {
                          //          event.relatedTarget.textContent = 'Dragged out'; //dont need either
                      },
                      ondrop: function (event) {
-                         event.relatedTarget.style.color = "#2bb5c1";
-                         event.relatedTarget.style.backgroundColor = "white";
+                         event.relatedTarget.style.color = "white";
+                         event.relatedTarget.style.backgroundColor = "#2bb5c1";
 
                      },
                      ondropdeactivate: function (event) {
@@ -219,6 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
                      }
                  })
              }
+             puzzleDiv.appendChild(dropzone);
              var hr = document.createElement('hr');
              puzzleDiv.appendChild(hr);
              for (var i in currentWord) {
@@ -228,7 +233,6 @@ document.addEventListener("DOMContentLoaded", function () {
                  newDiv.classList.add('drag-drop');
                  newDiv.setAttribute("id", letter);
                  newDiv.style.order = Math.floor(Math.random() * currentWord.length);
-                 console.log(currentWord.length);
                  newDiv.innerText = letter;
                  document.querySelector('.puzzle-div').appendChild(newDiv);
              }
@@ -241,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
                  inertia: true,
                  // keep the element within the area of it's parent
                  restrict: {
-                     restriction: ".letter-div",
+                     restriction: "self",
                      endOnly: true,
                      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
                  },

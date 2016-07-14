@@ -93,13 +93,25 @@ main {
 		flex-direction: column;
 		justify-content: space-around;
 	}
+	i {
+		display: inline-flex;
+		margin-left: 5vw;
+		transition: 1s;
+		&.none {
+			opacity: 0;
+		}
+	}
 }
+
 .abc {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
 	width: 50vw;
+	&.small {
+		opacity: 0.3;
+	}
 	p {
 		margin: 1vw 3vw;
 	}
@@ -114,7 +126,7 @@ main {
 			background-color: $emColor;
 			color: $bgColor;
 		}
-		@media (min-width: $forthDim) {
+				@media (min-width: $forthDim) {
 			font-size: 7vw;
 		}
 	}
@@ -218,7 +230,7 @@ nav {
 	}
 }
 .puzzle {
-	width: 60vw;
+	width: 50vw;
 	&.none {
 		opacity: 0;
 		transform: scale(0.1);
@@ -227,6 +239,7 @@ nav {
 }
 .puzzle-div {
 	display: flex;
+	flex-wrap: wrap;
 }
 .puzzle-letters {
 	display: flex;
@@ -251,9 +264,15 @@ nav {
 	display: inline-flex;
 	transition: background-color 0.3s;
 }
-
+.dropzone-div {
+	display: flex;
+	width: 100vw;
+}
 .drop-active {
 	border-color: $emColor;
+  .notip {
+    border-color: transparent;
+  }
 }
 
 .drop-target {
@@ -269,17 +288,15 @@ nav {
 	width: 5vw;
 	height: 5vw;
 	padding: 1vw;
-	margin: 5vh 1vw;
+	margin: 1vh 1vw;
 	text-transform: uppercase;
-	font-family: $textFont;
+	font-family: "PT Serif", serif;
 	font-size: 5vw;
-	color: $mainColor;
-	background-color: $bgColor;
-	border: solid 2px $emColor;
-
+	color: black;
+	background-color: white;
+	border: solid 2px #2bb5c1;
 	-webkit-transform: translate(0px, 0px);
 	transform: translate(0px, 0px);
-
 	transition: background-color 0.3s;
 }
 

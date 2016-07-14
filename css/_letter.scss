@@ -27,22 +27,24 @@
     width: 50vw;
     justify-content: center;
     align-self: flex-start;
-    @media all and (orientation:portrait) {
+    @media all and (orientation: portrait) {
       width: 80vw;
       font-size: 10vw;
     }
-      em {
+    em {
       font-size: 7vw;
       letter-spacing: 5px;
       display: inline-flex;
       color: $emColor;
-        @media all and (orientation:portrait) {
-          font-size: 10vw;
-        }
+      @media all and (orientation: portrait) {
+        font-size: 10vw;
+      }
     }
+  }
     &.none {
       opacity: 0;
-    }
+      transform: scale(0.01);
+      margin-top: -60vh;
   }
   @media (min-width: $thirDim) {
     font-size: 25vw;
