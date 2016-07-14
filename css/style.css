@@ -1561,7 +1561,9 @@ Creation date: 22/06/2016 15:38
       color: white; }
     @media (min-width: 1200px) {
       .abc i {
-        font-size: 7vw; } }
+        font-size: 7vw;
+        width: 7vw;
+        height: 7vw; } }
   @media all and (orientation: portrait) {
     .abc {
       width: 100vw; }

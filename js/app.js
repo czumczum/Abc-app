@@ -13,8 +13,17 @@ document.addEventListener("DOMContentLoaded", function () {
     var shakeOrNot;
     var showLetter;
     var currentWord = "";
-    var fullfilled = [];
+    var fullfilled = "";
 //    var letterMax = 10; //The user set the max length of letters in one word
+
+//Cookies
+ //   Cookies.remove('alfabet');
+    var cookie = typeof Cookies.get('alfabet');
+    if (cookie !== "undefined") {
+        fullfilled = Cookies.get('alfabet');
+        console.log(Cookies.get('alfabet').split(" "));
+        var answered = fullfilled.split(" ");
+    }
 
 
     //Functions
@@ -35,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             icon.classList.add(lettersDb[el][key]);
             if (fullfilled.indexOf(key) >= 0) {
                 var url = "img/" + icon.className.slice(9) + ".svg";
+                console.log('url');
                 icon.style.color = "transparent";
                 icon.style.backgroundImage = "url(" + url + ")";
             }
@@ -315,8 +325,12 @@ document.addEventListener("DOMContentLoaded", function () {
                      count++
                  }
                  if (count == dropzone.length) {
-                     fullfilled.push(currentWord);
+                     console.log(currentWord);
+                     console.log(typeof fullfilled);
+                     fullfilled += " " + currentWord;
                      changeMe();
+                     Cookies.set('alfabet', fullfilled, { expires: 7 });
+                     console.log(Cookies.get('alfabet'));
                      return fullfilled;
                  }
              }
