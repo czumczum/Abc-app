@@ -1520,6 +1520,76 @@ Creation date: 22/06/2016 15:38
     .letter {
       width: 100vw; } }
 
+.abc {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50vw; }
+  .abc.small {
+    opacity: 0.3; }
+  .abc p {
+    margin: 1vw 3vw; }
+  .abc img.flaticon {
+    width: 10vw;
+    height: 10vw;
+    background-position: center center;
+    background-size: cover;
+    transition: 1s;
+    padding: 1vw;
+    display: inline-flex; }
+    .abc img.flaticon:hover {
+      transform: rotate(360deg) scale(0.8);
+      border-radius: 50%;
+      background-color: #2bb5c1;
+      color: white; }
+    @media (min-width: 1200px) {
+      .abc img.flaticon {
+        font-size: 7vw; } }
+  .abc i {
+    font-size: 10vw;
+    transition: 1s;
+    padding: 1vw;
+    display: inline-flex;
+    background-size: contain;
+    width: 10vw;
+    height: 10vw; }
+    .abc i:hover {
+      transform: rotare(360deg) scale(0.8);
+      border-radius: 50%;
+      background-color: #2bb5c1;
+      color: white; }
+    @media (min-width: 1200px) {
+      .abc i {
+        font-size: 7vw; } }
+  @media all and (orientation: portrait) {
+    .abc {
+      width: 100vw; }
+      .abc i {
+        font-size: 20vw; } }
+    @media all and (orientation: portrait) and (orientation: portrait) and (min-width: 425px) {
+      .abc i {
+        font-size: 17vw; } }
+  @media all and (orientation: portrait) {
+      .abc p {
+        margin: 1vh 5vw; } }
+@-webkit-keyframes fadeIn {
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  to {
+    opacity: 1; } }
+  .abc .hidden {
+    -webkit-animation: fadeIn .5s ease-in 1 forwards;
+    animation: fadeIn .5s ease-in 1 forwards;
+    opacity: 0;
+    transition: 1s;
+    transform: scale(1); }
+  .abc .is-paused {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+    transform: scale(0.1); }
+
 * {
   padding: 0;
   margin: 0; }
@@ -1604,57 +1674,6 @@ main {
     transition: 1s; }
     main i.none {
       opacity: 0; }
-
-.abc {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 50vw; }
-  .abc.small {
-    opacity: 0.3; }
-  .abc p {
-    margin: 1vw 3vw; }
-  .abc i {
-    font-size: 10vw;
-    transition: 1s;
-    padding: 1vw;
-    display: inline-flex; }
-    .abc i:hover {
-      transform: rotare(360deg) scale(0.8);
-      border-radius: 50%;
-      background-color: #2bb5c1;
-      color: white; }
-    @media (min-width: 1200px) {
-      .abc i {
-        font-size: 7vw; } }
-  @media all and (orientation: portrait) {
-    .abc {
-      width: 100vw; }
-      .abc i {
-        font-size: 20vw; } }
-    @media all and (orientation: portrait) and (orientation: portrait) and (min-width: 425px) {
-      .abc i {
-        font-size: 17vw; } }
-  @media all and (orientation: portrait) {
-      .abc p {
-        margin: 1vh 5vw; } }
-@-webkit-keyframes fadeIn {
-  to {
-    opacity: 1; } }
-@keyframes fadeIn {
-  to {
-    opacity: 1; } }
-  .abc .hidden {
-    -webkit-animation: fadeIn .5s ease-in 1 forwards;
-    animation: fadeIn .5s ease-in 1 forwards;
-    opacity: 0;
-    transition: 1s;
-    transform: scale(1); }
-  .abc .is-paused {
-    -webkit-animation-play-state: paused;
-    animation-play-state: paused;
-    transform: scale(0.1); }
 
 footer {
   display: none; }

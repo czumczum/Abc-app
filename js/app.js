@@ -9,9 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var puzzleIcon = document.querySelector('.flaticon-puzzle');
     var bulbIcon = document.querySelector('.flaticon-light-bulb');
     var puzzleDel = function () {};
+    var changeMe = function () {};
     var shakeOrNot;
     var showLetter;
     var currentWord = "";
+    var fullfilled = [];
 //    var letterMax = 10; //The user set the max length of letters in one word
 
 
@@ -31,6 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
         for (var key in lettersDb[el]) { //adds the icons to main screen (unseen)
             var icon = document.createElement("i");
             icon.classList.add(lettersDb[el][key]);
+            if (fullfilled.indexOf(key) >= 0) {
+                var url = "img/" + icon.className.slice(9) + ".svg";
+                icon.style.color = "transparent";
+                icon.style.backgroundImage = "url(" + url + ")";
+            }
             icon.classList.add("hidden");
             icon.classList.add("is-paused");
             icon.addEventListener("click", letterTip);
@@ -162,6 +169,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             puzzleDiv.classList.remove("done");
             bigLetter.addEventListener("click", showLetter);
+            if (bigLetter.classList.contains("none")) {
+                bigLetter.classList.remove("none");
+            }
+        }
+    };
+    changeMe = function () {
+        var icons = document.querySelectorAll('.abc i');
+        for (var i = 0; i < icons.length; i++) {
+            if (icons[i].dataset.key == currentWord) {
+                icons[i].classList.remove("hidden");
+                var url = "img/" + icons[i].className.slice(9) + ".svg";
+                icons[i].classList.add("hidden");
+                icons[i].style.color = "transparent";
+                icons[i].style.backgroundImage = "url(" + url + ")";
+            }
         }
     };
 
@@ -187,8 +209,8 @@ document.addEventListener("DOMContentLoaded", function () {
                  interact(newDiv).dropzone({
                      // only accept elements matching this CSS selector
                      accept: acceptLtr,
-                     // Require a 75% element overlap for a drop to be possible
-                     overlap: 0.75,
+                     // Require a 90% element overlap for a drop to be possible
+                     overlap: 0.9,
 
                      // listen for drop related events:
 
@@ -202,19 +224,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
                          // feedback the possibility of a drop
                          dropzoneElement.classList.add('drop-target');
+                         dropzoneElement.classList.add('good');
                          draggableElement.classList.add('can-drop');
+                         puzzleDone();
                          //          draggableElement.textContent = 'Dragged in'; //don't need it
                      },
                      ondragleave: function (event) {
                          // remove the drop feedback style
                          event.target.classList.remove('drop-target');
+                         event.target.classList.remove('good');
                          event.relatedTarget.classList.remove('can-drop');
                          //          event.relatedTarget.textContent = 'Dragged out'; //dont need either
                      },
                      ondrop: function (event) {
                          event.relatedTarget.style.color = "white";
                          event.relatedTarget.style.backgroundColor = "#2bb5c1";
-
+                         event.relatedTarget.classList.remove('draggable');
                      },
                      ondropdeactivate: function (event) {
                          // remove active dropzone feedback
@@ -282,10 +307,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
          // this is used later in the resizing and gesture demos
          window.dragMoveListener = dragMoveListener;
-
+         var puzzleDone = function () {
+             var dropzone = document.querySelectorAll('.dropzone');
+             var count = 0;
+             for (var i = 0; i < dropzone.length; i++) {
+                 if (dropzone[i].classList.contains('good')) {
+                     count++
+                 }
+                 if (count == dropzone.length) {
+                     fullfilled.push(currentWord);
+                     changeMe();
+                     return fullfilled;
+                 }
+             }
+         }
      };
     settings.addEventListener("click", menuShow);
     puzzleIcon.addEventListener("click", puzzle);
+    bulbIcon.addEventListener("click", function () {
+        console.log(fullfilled);
+    });
     
     //Database
     var lettersDb =
