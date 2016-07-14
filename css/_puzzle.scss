@@ -1,0 +1,75 @@
+.puzzle {
+  width: 50vw;
+  &.none {
+    opacity: 0;
+    transform: scale(0.1);
+    transition: all 1s cubic-bezier(0.4, 0, 1, 0.29);
+  }
+}
+.puzzle-div {
+  display: flex;
+  flex-wrap: wrap;
+}
+.puzzle-letters {
+  display: flex;
+  justify-content: center;
+}
+#outer-dropzone {
+  height: 10vh;
+  width: 10vh;
+}
+
+#inner-dropzone {
+  height: 80px;
+}
+
+.dropzone {
+  background-color: #ccc;
+  border: dashed 4px transparent;
+  border-radius: 4px;
+  margin: 5vh 1vw;
+  padding: 1vw;
+  width: 80%;
+  display: inline-flex;
+  transition: background-color 0.3s;
+}
+.dropzone-div {
+  display: flex;
+  width: 100vw;
+}
+.drop-active {
+  border-color: $emColor;
+  .notip {
+    border-color: transparent;
+  }
+}
+
+.drop-target {
+  background-color: #29e;
+  border-color: #fff;
+  border-style: solid;
+}
+
+.drag-drop {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 5vw;
+  height: 5vw;
+  padding: 1vw;
+  margin: 1vh 1vw;
+  text-transform: uppercase;
+  font-family: "PT Serif", serif;
+  font-size: 5vw;
+  color: black;
+  background-color: white;
+  border: solid 2px #2bb5c1;
+  -webkit-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+  transition: background-color 0.3s;
+}
+
+.drag-drop.can-drop {
+  color: #000;
+  background-color: $emColor;
+}

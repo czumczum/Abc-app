@@ -8,23 +8,31 @@ document.addEventListener("DOMContentLoaded", function () {
     var puzzleDiv = document.querySelector('.puzzle');
     var puzzleIcon = document.querySelector('.flaticon-puzzle');
     var bulbIcon = document.querySelector('.flaticon-light-bulb');
+    var profilePic = document.querySelector('header .kid');
     var puzzleDel = function () {};
     var changeMe = function () {};
     var shakeOrNot;
     var showLetter;
     var currentWord = "";
     var fullfilled = "";
+    var kid;
+    var answered;
 //    var letterMax = 10; //The user set the max length of letters in one word
 
 //Cookies
- //   Cookies.remove('alfabet');
-    var cookie = typeof Cookies.get('alfabet');
-    if (cookie !== "undefined") {
-        fullfilled = Cookies.get('alfabet');
-        console.log(Cookies.get('alfabet').split(" "));
-        var answered = fullfilled.split(" ");
+    var eatThatCookie = function (name) {
+        fullfilled = "";
+        var cookie = typeof Cookies.get(name);
+        console.log(name + " " + cookie);
+        if (cookie !== "undefined") {
+            fullfilled = Cookies.get(name);
+            console.log(Cookies.get(name).split(" "));
+            answered = fullfilled.split(" ");
+        } else {
+            answered = [];
+        }
+        return answered
     }
-
 
     //Functions
     var loadPage = function (el) { //loads all of page content from db object
@@ -141,6 +149,82 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         }
     };
+    var welcomePage = function () {
+        puzzleDel();
+        if (document.querySelector(".welcome") != null) { //hides menu if it's seen
+            var toRemove = document.querySelector('.welcome');
+            toRemove.parentNode.removeChild(toRemove);
+        }
+        document.querySelector('main').style.display = "none";
+        var footer = document.querySelector('footer');
+        var footerDisplay;
+        if (footer.clientWidth > 0) { //save the footer default display (none on mobile, flex on wider screens
+            footerDisplay = "flex";
+        } else {
+            footerDisplay = "none";
+        }
+        footer.style.display = "none";
+        var screen = document.createElement("div");
+        screen.classList.add('welcome');
+        document.body.appendChild(screen);
+        var url = "";
+        //Creating profile pictures with cookies profiles
+        var imgKid;
+        var kidDiv;
+        var score;
+        for (var i = 0; i < 7; i++) {
+            imgKid = document.createElement('img');
+            kidDiv = document.createElement('div');
+            score = document.createElement('span');
+            kidDiv.appendChild(imgKid);
+            kidDiv.appendChild(score);
+            kid = "girl" + i;
+            if (eatThatCookie(kid).length > 0) {
+                score.innerText = eatThatCookie(kid).length - 1; //score number if it's higher than 0
+            }
+            screen.appendChild(kidDiv);
+            url = "img/girl-" + i + ".svg";
+            imgKid.setAttribute("src", url);
+            imgKid.setAttribute("alt", "kid picture");
+            imgKid.setAttribute("title", "profile picture to choose");
+            kidDiv.classList.add(kid);
+        }
+        for (var i = 0; i < 7; i++) {
+            imgKid = document.createElement('img');
+            kidDiv = document.createElement('div');
+            score = document.createElement('span');
+            kid = "boy" + i;
+            kidDiv.classList.add(kid);
+            kidDiv.appendChild(imgKid);
+            kidDiv.appendChild(score);
+            if (eatThatCookie(kid).length > 0) {
+                score.innerText = eatThatCookie(kid).length - 1; //score number if it's higher than 0
+            }
+            screen.appendChild(kidDiv);
+            url = "img/boy-" + i + ".svg";
+            imgKid.setAttribute("src", url);
+            imgKid.setAttribute("alt", "kid picture");
+            imgKid.setAttribute("title", "profile picture to choose");
+        }
+        var buttons = document.querySelectorAll('.welcome img');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function () {
+                screen.classList.add("none");
+                kid = this.parentNode.className;
+                eatThatCookie(kid);
+                url = this.getAttribute("src");
+                console.log(url);
+                window.setTimeout(function () {
+                    loadPage("a");
+                    screen.style.display = "none";
+                    document.querySelector('main').style.display = "flex";
+                    document.querySelector('footer').style.display = footerDisplay;
+                    profilePic.setAttribute("src", url);
+                    profilePic.style.opacity = 1;
+                }, 900);
+            })
+        }
+    };
 
     //Tips for each pic
     var letterTip = function() {
@@ -183,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 bigLetter.classList.remove("none");
             }
         }
-    };
+    };  //clean puzzle from the screen
     changeMe = function () {
         var icons = document.querySelectorAll('.abc i');
         for (var i = 0; i < icons.length; i++) {
@@ -195,8 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 icons[i].style.backgroundImage = "url(" + url + ")";
             }
         }
-    };
-
+    }; //changes font icon to image after correct answer in puzzle
      var puzzle = function () {
          if (currentWord != "") {
              letterSpace.classList.add('small');
@@ -329,18 +412,21 @@ document.addEventListener("DOMContentLoaded", function () {
                      console.log(typeof fullfilled);
                      fullfilled += " " + currentWord;
                      changeMe();
-                     Cookies.set('alfabet', fullfilled, { expires: 7 });
-                     console.log(Cookies.get('alfabet'));
+                     Cookies.set(kid, fullfilled, { expires: 7 });
+                     console.log(Cookies.get(kid));
                      return fullfilled;
                  }
              }
          }
      };
+
+     //events handlers:
     settings.addEventListener("click", menuShow);
     puzzleIcon.addEventListener("click", puzzle);
     bulbIcon.addEventListener("click", function () {
         console.log(fullfilled);
     });
+    profilePic.addEventListener("click", welcomePage);
     
     //Database
     var lettersDb =
@@ -349,7 +435,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "aktor": "flaticon-charlie-chaplin",
             "auto": "flaticon-car",
             "arena": "flaticon-big-stadium",
-            "ala": "flaticon-girl",
+            "ala": "flaticon-girl-1",
             "afryka": "flaticon-africa-map",
             "ara": "flaticon-macaw",
             "autobus": "flaticon-bus"
@@ -494,5 +580,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     };
 
-loadPage('a');
+welcomePage();
 });

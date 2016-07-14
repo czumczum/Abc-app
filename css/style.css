@@ -1592,6 +1592,74 @@ Creation date: 22/06/2016 15:38
     animation-play-state: paused;
     transform: scale(0.1); }
 
+.puzzle {
+  width: 50vw; }
+  .puzzle.none {
+    opacity: 0;
+    transform: scale(0.1);
+    transition: all 1s cubic-bezier(0.4, 0, 1, 0.29); }
+
+.puzzle-div {
+  display: flex;
+  flex-wrap: wrap; }
+
+.puzzle-letters {
+  display: flex;
+  justify-content: center; }
+
+#outer-dropzone {
+  height: 10vh;
+  width: 10vh; }
+
+#inner-dropzone {
+  height: 80px; }
+
+.dropzone {
+  background-color: #ccc;
+  border: dashed 4px transparent;
+  border-radius: 4px;
+  margin: 5vh 1vw;
+  padding: 1vw;
+  width: 80%;
+  display: inline-flex;
+  transition: background-color 0.3s; }
+
+.dropzone-div {
+  display: flex;
+  width: 100vw; }
+
+.drop-active {
+  border-color: #2bb5c1; }
+  .drop-active .notip {
+    border-color: transparent; }
+
+.drop-target {
+  background-color: #29e;
+  border-color: #fff;
+  border-style: solid; }
+
+.drag-drop {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 5vw;
+  height: 5vw;
+  padding: 1vw;
+  margin: 1vh 1vw;
+  text-transform: uppercase;
+  font-family: "PT Serif", serif;
+  font-size: 5vw;
+  color: black;
+  background-color: white;
+  border: solid 2px #2bb5c1;
+  -webkit-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+  transition: background-color 0.3s; }
+
+.drag-drop.can-drop {
+  color: #000;
+  background-color: #2bb5c1; }
+
 * {
   padding: 0;
   margin: 0; }
@@ -1602,7 +1670,8 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  overflow: hidden; }
+  overflow: hidden;
+  justify-content: space-between; }
 
 h1 {
   font-family: "Katibeh", cursive;
@@ -1634,7 +1703,10 @@ header {
   width: 90%;
   height: 15vh; }
   header p {
-    margin: 10px 0; }
+    margin: 10px 0;
+    display: flex;
+    width: 21vw;
+    flex-direction: row; }
   header i {
     font-size: 10vw; }
     @media all and (min-width: 680px) {
@@ -1643,6 +1715,11 @@ header {
     @media all and (orientation: landscape) {
       header i {
         font-size: 7vw; } }
+  header img {
+    width: 7vw;
+    height: 7vw;
+    opacity: 0;
+    transition: 1s; }
   @media all and (orientation: portrait) {
     header {
       align-items: flex-start; } }
@@ -1731,72 +1808,27 @@ nav {
       nav h1 {
         font-size: 18vw; } }
 
-.puzzle {
-  width: 50vw; }
-  .puzzle.none {
-    opacity: 0;
-    transform: scale(0.1);
-    transition: all 1s cubic-bezier(0.4, 0, 1, 0.29); }
-
-.puzzle-div {
+.welcome {
   display: flex;
-  flex-wrap: wrap; }
-
-.puzzle-letters {
-  display: flex;
-  justify-content: center; }
-
-#outer-dropzone {
-  height: 10vh;
-  width: 10vh; }
-
-#inner-dropzone {
-  height: 80px; }
-
-.dropzone {
-  background-color: #ccc;
-  border: dashed 4px transparent;
-  border-radius: 4px;
-  margin: 5vh 1vw;
-  padding: 1vw;
-  width: 80%;
-  display: inline-flex;
-  transition: background-color 0.3s; }
-
-.dropzone-div {
-  display: flex;
-  width: 100vw; }
-
-.drop-active {
-  border-color: #2bb5c1; }
-  .drop-active .notip {
-    border-color: transparent; }
-
-.drop-target {
-  background-color: #29e;
-  border-color: #fff;
-  border-style: solid; }
-
-.drag-drop {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 5vw;
-  height: 5vw;
-  padding: 1vw;
-  margin: 1vh 1vw;
-  text-transform: uppercase;
-  font-family: "PT Serif", serif;
-  font-size: 5vw;
-  color: black;
-  background-color: white;
-  border: solid 2px #2bb5c1;
-  -webkit-transform: translate(0px, 0px);
-  transform: translate(0px, 0px);
-  transition: background-color 0.3s; }
-
-.drag-drop.can-drop {
-  color: #000;
-  background-color: #2bb5c1; }
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100vw;
+  height: 80vh;
+  justify-content: space-around;
+  transition: 1s; }
+  .welcome div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1vh 1vw; }
+  .welcome img {
+    display: inline-flex;
+    width: 11vw; }
+  .welcome span {
+    color: black;
+    font-family: "Katibeh", cursive;
+    font-size: 4vw; }
+  .welcome.none {
+    opacity: 0; }
 
 /*# sourceMappingURL=style.css.map */
