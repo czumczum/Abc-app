@@ -8,8 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var puzzleDiv = document.querySelector('.puzzle');
     var puzzleIcon = document.querySelector('.flaticon-puzzle');
     var bulbIcon = document.querySelector('.flaticon-light-bulb');
+    var helpIcon = document.querySelector('img.help');
     var profilePic = document.querySelector('header .kid');
     var imgTip = document.createElement('img');
+    var bulbClass = "flaticon-light-bulb";
     var puzzleDel = function () {};
     var changeMe = function () {};
     var unchangeMe = function () {};
@@ -19,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var fullfilled = "";
     var kid;
     var answered;
-//    var letterMax = 10; //The user set the max length of letters in one word
 
 //Cookies
     var eatThatCookie = function (name) {
@@ -105,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             bigLetter.addEventListener("click", createIcons);
     };
-
     // Function for checking that it's worth to shake or not AND removes 'clicked' class
     shakeOrNot = function() {
         var letters = document.querySelectorAll(".abc i");
@@ -123,14 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
             bigLetter.removeChild(imgTip);
         }
     };
-
-    //Menu handling
-    for (var i = 0; i < navMenu.length; i++) {
-        navMenu[i].addEventListener("click", function() {
-            var letter = this.innerText.toLowerCase();
-            loadPage(letter);
-        })
-    }
     var menuShow = function (e) {
         puzzleDel();
         if (document.querySelector("nav") != null) { //hides menu if it's seen
@@ -250,7 +242,6 @@ document.addEventListener("DOMContentLoaded", function () {
             })
         }
     };
-
     //Tips for each pic
     var letterTip = function() {
          removeTip(); //remove previous tip (if there's any)
@@ -459,7 +450,9 @@ document.addEventListener("DOMContentLoaded", function () {
                      count++
                  }
                  if (count == dropzone.length) {
-                     fullfilled += " " + currentWord;
+                     if (fullfilled.indexOf(currentWord) < 0) {
+                         fullfilled += " " + currentWord;
+                     }
                      var icons = document.querySelectorAll('.abc i');
                      for (var i = 0; i < icons.length; i++) {
                          if (icons[i].dataset.key == currentWord) {
@@ -475,32 +468,52 @@ document.addEventListener("DOMContentLoaded", function () {
      var hints = function (el) {
          var dropzone = document.querySelectorAll('.dropzone');
          if (dropzone[0].classList.contains('no-hint')) {
-             var url = "img/" + el.className.slice(9) + ".svg";
+             var url = "img/" + bulbClass.slice(9) + ".svg";
              el.style.color = "transparent";
+             console.log(url);
              el.style.backgroundImage = "url(" + url + ")";
              for (var i = 0; i < dropzone.length; i++) {
-                 console.log(i);
                  dropzone[i].classList.remove('no-hint');
              }
          } else {
              for (var i = 0; i < dropzone.length; i++) {
                  dropzone[i].classList.add('no-hint');
-                 var url = el.style.backgroundImage.slice(0,4);
-                 url = url.slice(url.length - 4);
                  el.style.backgroundImage = "none";
-                 el.classList.add("flaticon-" + url);
+                 el.classList.add(bulbClass);
                  el.classList.add("hidden");
                  el.style.color = "#2bb5c1";
              }
          }
      }
+     var helpMe = function () { //finger point help with site's navigation
+         var profileMenu = document.querySelector('.welcome');
+         var letterMenu = document.querySelector('nav');
+         var icon = document.querySelector('.abc p');
+         bigLetter;
+         puzzleIcon;
+         var puzzleGame = document.querySelector('.dropzone');
+         if (document.querySelector('nav')) { //if nav is displayed
+
+         }
+     };
+
      //events handlers:
     settings.addEventListener("click", menuShow);
     puzzleIcon.addEventListener("click", puzzle);
     bulbIcon.addEventListener("click", function () {
         hints(this);
+        console.log(fullfilled);
     });
     profilePic.addEventListener("click", welcomePage);
+    helpIcon.addEventListener("click", helpMe);
+
+    //Menu handling
+    for (var i = 0; i < navMenu.length; i++) {
+        navMenu[i].addEventListener("click", function() {
+            var letter = this.innerText.toLowerCase();
+            loadPage(letter);
+        })
+    }
     
     //Database
     var lettersDb =
