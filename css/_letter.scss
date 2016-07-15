@@ -6,7 +6,6 @@
   @media all and (orientation: portrait) {
     height: 30vh;
     width: 100vw;
-    flex-direction: row;
   }
   p {
     margin: 2vh 5vw;
@@ -123,6 +122,10 @@
   }
   @media all and (orientation:portrait) {
     width: 100vw;
+    display: flex;
+    align-items: center;
+    height: 51vh;
+    justify-content: flex-start;
     i {
       font-size: 20vw;
       @media all and (orientation:portrait)  and (min-width: $firstDim) {

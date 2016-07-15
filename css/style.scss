@@ -27,8 +27,14 @@ h1 {
 	color: $mainColor;
 	display: flex;
 	align-self: flex-start;
-	@media (min-width: $thirDim) {
-		font-size: 3vw;
+	&.logo {
+		font-size: 6vw;
+		@media (orientation: portrait) {
+			font-size: 10vw;
+		}
+		@media (min-width: $forthDim) {
+			font-size: 3vw;
+		}
 	}
 	em {
 		font-style: normal;
@@ -60,11 +66,11 @@ header {
 	}
 	i {
 		font-size: 10vw;
-		@media all and (min-width: $seconDim) {
+		@media all and (orientation: landscape) and (min-width: $firstDim) {
 			font-size: 7vw;
 		}
-		@media all and (orientation:landscape) {
-			font-size: 7vw;
+		@media all and (orientation: portrait) {
+			font-size: 13vw;
 		}
 	}
 	img {
@@ -75,14 +81,19 @@ header {
 		&.help {
 			opacity: 1;
 		}
+		@media all and (orientation: portrait) {
+			width: 13vw;
+			height: 13vw;
+		}
 	}
 	@media all and (orientation:portrait) {
 		align-items: flex-start;
+		height: 10vh;
 	}
 	@media all and (orientation:portrait)  and (min-width: $firstDim) {
 		height: 10vh;
 		}
-	@media all and (min-width: $thirDim) {
+	@media all and (min-width: $forthDim) {
 		height: 20vh;
 		align-items: flex-start;
 		i {
@@ -103,7 +114,8 @@ main {
 	}
 	@media all and (orientation:portrait) {
 		flex-direction: column;
-		justify-content: space-around;
+		justify-content: flex-start;
+		align-items: flex-start;
 	}
 	i {
 		display: inline-flex;
@@ -119,7 +131,6 @@ main {
 		left: 0vw;
 	}
 }
-
 footer {
 	display: none;
 	@media (min-width: $thirDim) {
@@ -181,6 +192,10 @@ nav {
 			font-size: 18vw;
 		}
 	}
+	@media all and (orientation: portrait) {
+		width: 93vw;
+		height: 90vh;
+	}
 }
 .welcome {
 	display: flex;
@@ -207,6 +222,33 @@ nav {
 	}
 	&.none {
 		opacity: 0;
+	}
+	@media all and (orientation: portrait) {
+		height: 90vh;
+		img {
+			width: 23vw;
+		}
+		span {
+			font-size: 7vw;
+		}
+	}
+	@media all and (orientation: portrait) and (min-width: $firstDim) {
+		height: 85vh;
+		div {
+			margin: 0;
+			img {
+				width: 20vw;
+			}
+		}
+	}
+	@media all and (orientation: landscape) and (min-width: $seconDim) {
+		height: 90vh;
+		div {
+			margin: 0 1vw;
+		}
+		img {
+			width: 15vw;
+		}
 	}
 }
 img.help-point {

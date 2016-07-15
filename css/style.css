@@ -1475,8 +1475,7 @@ Creation date: 22/06/2016 15:38
   @media all and (orientation: portrait) {
     .letter-div {
       height: 30vh;
-      width: 100vw;
-      flex-direction: row; } }
+      width: 100vw; } }
   .letter-div p {
     margin: 2vh 5vw; }
 
@@ -1578,7 +1577,11 @@ p i img.help-point {
         height: 7vw; } }
   @media all and (orientation: portrait) {
     .abc {
-      width: 100vw; }
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      height: 51vh;
+      justify-content: flex-start; }
       .abc i {
         font-size: 20vw; } }
     @media all and (orientation: portrait) and (orientation: portrait) and (min-width: 425px) {
@@ -1692,9 +1695,14 @@ h1 {
   color: black;
   display: flex;
   align-self: flex-start; }
-  @media (min-width: 1024px) {
-    h1 {
-      font-size: 3vw; } }
+  h1.logo {
+    font-size: 6vw; }
+    @media (orientation: portrait) {
+      h1.logo {
+        font-size: 10vw; } }
+    @media (min-width: 1200px) {
+      h1.logo {
+        font-size: 3vw; } }
   h1 em {
     font-style: normal;
     color: #2bb5c1; }
@@ -1723,12 +1731,12 @@ header {
     flex-direction: row; }
   header i {
     font-size: 10vw; }
-    @media all and (min-width: 680px) {
+    @media all and (orientation: landscape) and (min-width: 425px) {
       header i {
         font-size: 7vw; } }
-    @media all and (orientation: landscape) {
+    @media all and (orientation: portrait) {
       header i {
-        font-size: 7vw; } }
+        font-size: 13vw; } }
   header img {
     width: 7vw;
     height: 7vw;
@@ -1736,13 +1744,18 @@ header {
     transition: 1s; }
     header img.help {
       opacity: 1; }
+    @media all and (orientation: portrait) {
+      header img {
+        width: 13vw;
+        height: 13vw; } }
   @media all and (orientation: portrait) {
     header {
-      align-items: flex-start; } }
+      align-items: flex-start;
+      height: 10vh; } }
   @media all and (orientation: portrait) and (min-width: 425px) {
     header {
       height: 10vh; } }
-  @media all and (min-width: 1024px) {
+  @media all and (min-width: 1200px) {
     header {
       height: 20vh;
       align-items: flex-start; }
@@ -1762,7 +1775,8 @@ main {
   @media all and (orientation: portrait) {
     main {
       flex-direction: column;
-      justify-content: space-around; } }
+      justify-content: flex-start;
+      align-items: flex-start; } }
   main i {
     display: inline-flex;
     margin-left: 5vw;
@@ -1829,6 +1843,10 @@ nav {
     @media all and (orientation: portrait) and (min-width: 425px) {
       nav h1 {
         font-size: 18vw; } }
+  @media all and (orientation: portrait) {
+    nav {
+      width: 93vw;
+      height: 90vh; } }
 
 .welcome {
   display: flex;
@@ -1852,6 +1870,27 @@ nav {
     font-size: 4vw; }
   .welcome.none {
     opacity: 0; }
+  @media all and (orientation: portrait) {
+    .welcome {
+      height: 90vh; }
+      .welcome img {
+        width: 23vw; }
+      .welcome span {
+        font-size: 7vw; } }
+  @media all and (orientation: portrait) and (min-width: 425px) {
+    .welcome {
+      height: 85vh; }
+      .welcome div {
+        margin: 0; }
+        .welcome div img {
+          width: 20vw; } }
+  @media all and (orientation: landscape) and (min-width: 680px) {
+    .welcome {
+      height: 90vh; }
+      .welcome div {
+        margin: 0 1vw; }
+      .welcome img {
+        width: 15vw; } }
 
 img.help-point {
   position: absolute;
