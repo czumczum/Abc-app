@@ -3,15 +3,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  @media all and (orientation:portrait) {
+  @media all and (orientation: portrait) {
     height: 30vh;
     width: 100vw;
     flex-direction: row;
   }
-    p {
+  p {
     margin: 2vh 5vw;
   }
 }
+ p i img.help-point {
+    top: 0vh;
+    left: 5vw;
+  }
 
 .letter {
   font-family: $textFont;
@@ -23,13 +27,6 @@
   flex-basis: 70%;
   transition: 1s;
   position: relative;
-  img {
-    position: absolute;
-    width: 8vw;
-    top: 30vh;
-    left: 30vw;
-    transform: skew(15deg);
-  }
   &:hover img {
     opacity: 0;
   }
@@ -51,6 +48,11 @@
         font-size: 10vw;
       }
     }
+  }
+  .help-point {
+    position: absolute;
+    top: 20vh;
+    left: 30vw;
   }
     &.none {
       opacity: 0;

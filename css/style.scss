@@ -72,6 +72,9 @@ header {
 		height: 7vw;
 		opacity: 0;
 		transition: 1s;
+		&.help {
+			opacity: 1;
+		}
 	}
 	@media all and (orientation:portrait) {
 		align-items: flex-start;
@@ -87,7 +90,6 @@ header {
 		}
 	}
 }
-
 main {
 	display: flex;
 	justify-content: center;
@@ -110,6 +112,11 @@ main {
 		&.none {
 			opacity: 0;
 		}
+	}
+	.help-point {
+		position: absolute;
+		top: 0vh;
+		left: 0vw;
 	}
 }
 
@@ -163,6 +170,9 @@ nav {
 			transform-origin: 50% 100%;
 			color: $mainColor;
 			opacity: 1;
+			img {
+				display: none;
+			}
 		}
 		@media all and (orientation:portrait)  and (max-width: $firstDim) {
 			font-size: 20vw;
@@ -198,4 +208,11 @@ nav {
 	&.none {
 		opacity: 0;
 	}
+}
+img.help-point {
+	position: absolute;
+	width: 8vw;
+	top: 10vh;
+	left: 2vw;
+	transform: skew(15deg);
 }

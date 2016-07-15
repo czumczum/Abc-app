@@ -10,12 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var bulbIcon = document.querySelector('.flaticon-light-bulb');
     var helpIcon = document.querySelector('img.help');
     var profilePic = document.querySelector('header .kid');
-    var imgTip = document.createElement('img');
     var bulbClass = "flaticon-light-bulb";
     var puzzleDel = function () {};
     var changeMe = function () {};
     var unchangeMe = function () {};
-    var shakeOrNot;
+    var shakeOrNot = function () {};
     var showLetter;
     var currentWord = "";
     var fullfilled = "";
@@ -116,8 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (letters.length > 0 && letters.length > (letters.length - unseenLetter.length)) {
             bigLetter.classList.add("shake-slow"); //checks if there's still more letters to show
-            imgTip.setAttribute('src', 'img/tap.svg')
-            bigLetter.appendChild(imgTip);
         } else if (bigLetter.classList.contains("shake-slow")) {
             bigLetter.classList.remove("shake-slow");
             bigLetter.removeChild(imgTip);
@@ -307,7 +304,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 var url = icons[i].style.backgroundImage.slice(0,4);
                 url = url.slice(url.length - 4);
-                console.log(url);
                 icons[i].style.backgroundImage = "none";
                 icons[i].classList.add("flaticon-" + url);
                 icons[i].classList.add("hidden");
@@ -486,14 +482,41 @@ document.addEventListener("DOMContentLoaded", function () {
          }
      }
      var helpMe = function () { //finger point help with site's navigation
+         var imgTip = document.createElement('img');
          var profileMenu = document.querySelector('.welcome');
          var letterMenu = document.querySelector('nav');
          var icon = document.querySelector('.abc p');
-         bigLetter;
-         puzzleIcon;
-         var puzzleGame = document.querySelector('.dropzone');
-         if (document.querySelector('nav')) { //if nav is displayed
-
+         var puzzleGame = document.querySelector('.drag-drop');
+         imgTip.setAttribute('src', 'img/tap.svg');
+         imgTip.classList.add('help-point');
+         if (letterMenu != null && !letterMenu.classList.contains('none')) { //if nav is displayed
+             letterMenu.style.position = "relative";
+             letterMenu.querySelector('h1').appendChild(imgTip);
+             window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 5000)
+             }
+         else if (puzzleGame != null) {
+             puzzleGame.style.position = "relative";
+             puzzleGame.appendChild(imgTip);
+             window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
+         }
+         else if (bigLetter.classList.contains("clicked")) {
+             puzzleIcon.style.position = "relative";
+             puzzleIcon.appendChild(imgTip);
+             window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
+         }
+         else if (icon != null) {
+             icon.style.position = "relative";
+             icon.appendChild(imgTip);
+             window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
+         }
+         else if (!bigLetter.classList.contains("clicked") && bigLetter.style.display == "flex") {
+             bigLetter.style.position = "relative";
+             bigLetter.appendChild(imgTip);
+             window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
+         } else if (profileMenu != null && !profileMenu.classList.contains("none")) {
+             profileMenu.querySelector('div').style.position = "relative";
+             profileMenu.appendChild(imgTip);
+             window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
          }
      };
 
