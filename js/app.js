@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var imgTip = document.createElement('img');
     var puzzleDel = function () {};
     var changeMe = function () {};
+    var unchangeMe = function () {};
     var shakeOrNot;
     var showLetter;
     var currentWord = "";
@@ -34,59 +35,75 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //Functions
-    var loadPage = function (el) { //loads all of page content from db object
-        bigLetter.innerText = el;
-        currentWord = ""; //deletes the current word from previous letter
-        bigLetter.style.display = "flex";
-        puzzleDel();
-        var counter = 0;
+    var removeLetters = function () { //removes the icons from screen
         var toRemove = document.querySelectorAll('.abc p');
         if (toRemove != []) { //removes previous screen (if there is any)
             for (var i = 0; i < toRemove.length; i++) {
                 toRemove[i].parentNode.removeChild(toRemove[i]);
             }
         }
-        for (var key in lettersDb[el]) { //adds the icons to main screen (unseen)
-            var icon = document.createElement("i");
-            icon.classList.add(lettersDb[el][key]);
-            if (fullfilled.indexOf(key) >= 0) {
-                var url = "img/" + icon.className.slice(9) + ".svg";
-                icon.style.color = "transparent";
-                icon.style.backgroundImage = "url(" + url + ")";
-            }
-            icon.classList.add("hidden");
-            icon.classList.add("is-paused");
-            icon.addEventListener("click", letterTip);
-            icon.addEventListener("click", function() {
-                currentWord = this.dataset.key;
-                puzzleDel();
-                bigLetter.style.display = "flex";
-                bigLetter.classList.remove("none");
-            });
-            var paragraf = document.createElement("p");
-            paragraf.appendChild(icon);
-            letterSpace.appendChild(paragraf);
-            icon.dataset.key = key;
-            counter++
-            if (counter >= 6) {
-                break;
-            }
+    }
+    var loadPage = function (el) { //loads all of page content from db object
+        bigLetter.innerText = el;
+        if (bigLetter.classList.contains("none")) {
+            bigLetter.classList.remove("none");
         }
-        var letters = document.querySelectorAll(".abc i");
-        shakeOrNot(); //checks if the big letter needs to shake
-        var count = 0;
-        showLetter = function (e) { //shows the icons
-            shakeOrNot(); //checks if the big letter still needs to shake
-            if (letters[count].classList.contains('is-paused')) {
-                letters[count].classList.remove('is-paused');
+        if (bigLetter.classList.contains("clicked")) {
+            bigLetter.classList.remove("clicked");
+        }
+        currentWord = ""; //deletes the current word from previous letter
+        bigLetter.style.display = "flex";
+        puzzleDel();
+        removeLetters();
+        var createIcons = function () {
+            var number = [];
+            for (var key in lettersDb[el]) {
+                number.push(key);
             }
-            count++;
-            if (count == letters.length) { //end of the icons, freeze
+           removeLetters();
+            for (var i = 0; i < 6; i++) {
+                var random = Math.floor(Math.random() * (number.length));
+                var icon = document.createElement("i");
+                icon.classList.add(lettersDb[el][number[random]]);
+                if (fullfilled.indexOf(number[random]) >= 0) {
+                    var url = "img/" + icon.className.slice(9) + ".svg";
+                    icon.style.color = "transparent";
+                    icon.style.backgroundImage = "url(" + url + ")";
+                }
+                icon.classList.add("hidden");
+                icon.classList.add("is-paused");
+                icon.addEventListener("click", letterTip);
+                icon.addEventListener("click", function () {
+                    unchangeMe();
+                    currentWord = this.dataset.key;
+                    puzzleDel();
+                    bigLetter.style.display = "flex";
+                    bigLetter.classList.remove("none");
+                });
+                var paragraf = document.createElement("p");
+                paragraf.appendChild(icon);
+                letterSpace.appendChild(paragraf);
+                icon.dataset.key = number[random]; //randomizes the view of icons, but max 6 on screen
+                number.splice(random, 1);
+                if (number.length <= 0) {
+                    break
+                }
+                }
+                unchangeMe();
+                showLetter();
+        }
+        showLetter = function (e) { //shows the icons
+            var letters = document.querySelectorAll(".abc i");
+            shakeOrNot(); //checks if the big letter still needs to shake
+            for (var i = 0; i < letters.length; i++) {
+                if (letters[i].classList.contains('is-paused')) {
+                    letters[i].classList.remove('is-paused');
+                }
+            }
                 bigLetter.classList.remove("shake-slow");
                 bigLetter.removeEventListener("click", showLetter);
             }
-        };
-        bigLetter.addEventListener("click", showLetter);
+            bigLetter.addEventListener("click", createIcons);
     };
 
     // Function for checking that it's worth to shake or not AND removes 'clicked' class
@@ -258,7 +275,12 @@ document.addEventListener("DOMContentLoaded", function () {
      };
     puzzleDel = function () {
         if (puzzleDiv.classList.contains("done")) { //checks if drag&drop is loaded
-            letterSpace.classList.remove("small");
+            var icons = document.querySelectorAll('.abc p');
+            for (var i = 0; i < icons.length; i++) {
+                if (icons[i].classList.contains('small')) {
+                    icons[i].classList.remove('small');
+                }
+            }
             bulbIcon.classList.add("none");
             var hrRemove = puzzleDiv.querySelector('hr');
             puzzleDiv.removeChild(hrRemove);
@@ -271,9 +293,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             puzzleDiv.classList.remove("done");
             bigLetter.addEventListener("click", showLetter);
-            if (bigLetter.classList.contains("none")) {
-                bigLetter.classList.remove("none");
-            }
         }
     };  //clean puzzle from the screen
     changeMe = function () {
@@ -287,10 +306,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 icons[i].style.backgroundImage = "url(" + url + ")";
             }
         }
-    }; //changes font icon to image after correct answer in puzzle
+    };
+    unchangeMe = function () {
+        var icons = document.querySelectorAll('.abc i');
+        for (var i = 0; i < icons.length; i++) {
+            if (icons[i].dataset.key == currentWord) {
+                if (icons[i].classList.contains('done')) {
+                    return true //TODO add some fireworks
+                }
+                var url = icons[i].style.backgroundImage.slice(0,4);
+                url = url.slice(url.length - 4);
+                console.log(url);
+                icons[i].style.backgroundImage = "none";
+                icons[i].classList.add("flaticon-" + url);
+                icons[i].classList.add("hidden");
+                icons[i].style.color = "#2bb5c1";
+            }
+        }
+    }
      var puzzle = function () {
+         changeMe();
          if (currentWord != "") {
-             letterSpace.classList.add('small');
+             var icons = document.querySelectorAll('.abc p');
+             for (var i = 0; i < icons.length; i++) {
+                 if (icons[i].querySelector('i').dataset.key != currentWord) {
+                     icons[i].classList.add('small');
+                 }
+             }
              puzzleDiv.classList.remove("none");
              bigLetter.classList.add("none");
              bigLetter.removeEventListener("click", showLetter);
@@ -302,6 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
                  var letter = currentWord.charAt(i);
                  var newDiv = document.createElement('div');
                  newDiv.classList.add('dropzone');
+                 newDiv.classList.add('no-hint');
                  newDiv.setAttribute('id', 'outer-dropzone');
                  newDiv.setAttribute("data-letter", letter);
                  dropzone.appendChild(newDiv);
@@ -417,19 +460,45 @@ document.addEventListener("DOMContentLoaded", function () {
                  }
                  if (count == dropzone.length) {
                      fullfilled += " " + currentWord;
-                     changeMe();
+                     var icons = document.querySelectorAll('.abc i');
+                     for (var i = 0; i < icons.length; i++) {
+                         if (icons[i].dataset.key == currentWord) {
+                             icons[i].classList.add("done");
+                         }
+                     }
                      Cookies.set(kid, fullfilled, { expires: 7 });
                      return fullfilled;
                  }
              }
          }
      };
-
+     var hints = function (el) {
+         var dropzone = document.querySelectorAll('.dropzone');
+         if (dropzone[0].classList.contains('no-hint')) {
+             var url = "img/" + el.className.slice(9) + ".svg";
+             el.style.color = "transparent";
+             el.style.backgroundImage = "url(" + url + ")";
+             for (var i = 0; i < dropzone.length; i++) {
+                 console.log(i);
+                 dropzone[i].classList.remove('no-hint');
+             }
+         } else {
+             for (var i = 0; i < dropzone.length; i++) {
+                 dropzone[i].classList.add('no-hint');
+                 var url = el.style.backgroundImage.slice(0,4);
+                 url = url.slice(url.length - 4);
+                 el.style.backgroundImage = "none";
+                 el.classList.add("flaticon-" + url);
+                 el.classList.add("hidden");
+                 el.style.color = "#2bb5c1";
+             }
+         }
+     }
      //events handlers:
     settings.addEventListener("click", menuShow);
     puzzleIcon.addEventListener("click", puzzle);
     bulbIcon.addEventListener("click", function () {
-        console.log(fullfilled);
+        hints(this);
     });
     profilePic.addEventListener("click", welcomePage);
     
@@ -440,7 +509,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "aktor": "flaticon-charlie-chaplin",
             "auto": "flaticon-car",
             "arena": "flaticon-big-stadium",
-            "ala": "flaticon-girl-1",
+            "ala": "flaticon-girl-5",
             "afryka": "flaticon-africa-map",
             "ara": "flaticon-macaw",
             "autobus": "flaticon-bus"

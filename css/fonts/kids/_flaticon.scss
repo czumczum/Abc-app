@@ -3,6 +3,7 @@
     Creation date: 22/06/2016 15:46
     */
 
+    //noinspection CssUnknownTarget
     @font-face {
   font-family: "Flaticon-kid";
   src: url("./fonts/kids/Flaticon.eot");
@@ -86,7 +87,10 @@
 .flaticon-girl-26:before { content: "\f12a"; }
 .flaticon-girl-3:before { content: "\f12b"; }
 .flaticon-girl-4:before { content: "\f12c"; }
-.flaticon-girl-5:before { content: "\f12d"; }
+.flaticon-girl-5:before {
+  content: "\f12d";
+  font-family: "Flaticon-kid";
+}
 .flaticon-girl-6:before { content: "\f12e"; }
 .flaticon-girl-7:before { content: "\f12f"; }
 .flaticon-girl-8:before { content: "\f130"; }

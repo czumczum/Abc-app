@@ -223,7 +223,8 @@ Creation date: 22/06/2016 15:46
   content: "\f12c"; }
 
 .flaticon-girl-5:before {
-  content: "\f12d"; }
+  content: "\f12d";
+  font-family: "Flaticon-kid"; }
 
 .flaticon-girl-6:before {
   content: "\f12e"; }
@@ -1487,7 +1488,7 @@ Creation date: 22/06/2016 15:38
   text-transform: uppercase;
   cursor: pointer;
   flex-basis: 70%;
-  transition: s;
+  transition: 1s;
   position: relative; }
   .letter img {
     position: absolute;
@@ -1535,10 +1536,10 @@ Creation date: 22/06/2016 15:38
   flex-wrap: wrap;
   justify-content: center;
   width: 50vw; }
-  .abc.small {
-    opacity: 0.3; }
   .abc p {
     margin: 1vw 3vw; }
+    .abc p.small {
+      opacity: 0.3; }
   .abc img.flaticon {
     width: 10vw;
     height: 10vw;
@@ -1632,6 +1633,8 @@ Creation date: 22/06/2016 15:38
   width: 80%;
   display: inline-flex;
   transition: background-color 0.3s; }
+  .dropzone.no-hint {
+    border: none; }
 
 .dropzone-div {
   display: flex;
@@ -1737,7 +1740,7 @@ header {
       height: 10vh; } }
   @media all and (min-width: 1024px) {
     header {
-      height: 10vh;
+      height: 20vh;
       align-items: flex-start; }
       header i {
         font-size: 5vw; } }

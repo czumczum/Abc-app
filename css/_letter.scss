@@ -75,11 +75,11 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 50vw;
-  &.small {
-    opacity: 0.3;
-  }
   p {
     margin: 1vw 3vw;
+    &.small {
+      opacity: 0.3;
+    }
   }
   img.flaticon {
     width: 10vw;

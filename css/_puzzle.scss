@@ -32,6 +32,9 @@
   width: 80%;
   display: inline-flex;
   transition: background-color 0.3s;
+  &.no-hint {
+    border: none;
+  }
 }
 .dropzone-div {
   display: flex;
