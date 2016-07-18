@@ -15,13 +15,24 @@ document.addEventListener("DOMContentLoaded", function () {
     var changeMe = function () {};
     var unchangeMe = function () {};
     var shakeOrNot = function () {};
+    var swipeHint = function () {};
     var showLetter;
     var currentWord = "";
     var fullfilled = "";
     var kid;
     var answered;
+    //Swipe variables
+    var touchStartCoords =  {'x':-1, 'y':-1}, // X and Y coordinates on mousedown or touchstart events.
+        touchEndCoords = {'x':-1, 'y':-1},// X and Y coordinates on mouseup or touchend events.
+        direction = 'undefined',// Swipe direction
+        minDistanceXAxis = 30,// Min distance on mousemove or touchmove on the X axis
+        maxDistanceYAxis = 30,// Max distance on mousemove or touchmove on the Y axis
+        maxAllowedTime = 1000,// Max allowed time between swipeStart and swipeEnd
+        startTime = 0,// Time on swipeStart
+        elapsedTime = 0,// Elapsed time between swipeStart and swipeEnd
+        targetElement = document.querySelector('main');// Element to delegate
 
-//Cookies
+    // Cookies
     var eatThatCookie = function (name) {
         fullfilled = "";
         var cookie = typeof Cookies.get(name);
@@ -103,7 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 bigLetter.classList.remove("shake-slow");
                 bigLetter.removeEventListener("click", showLetter);
             }
-            bigLetter.addEventListener("click", createIcons);
+        bigLetter.addEventListener("click", createIcons);
+        swipeHint();
     };
     // Function for checking that it's worth to shake or not AND removes 'clicked' class
     shakeOrNot = function() {
@@ -519,6 +531,18 @@ document.addEventListener("DOMContentLoaded", function () {
              window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
          }
      };
+     swipeHint = function () {
+         var cookie = typeof Cookies.get('swipeHint');
+         if (cookie == "undefined") {
+             var swipe = document.createElement('img');
+             swipe.setAttribute('src', 'img/pointing.svg');
+             swipe.setAttribute("id", "swipeHint");
+             document.querySelector('body').appendChild(swipe);
+             window.setTimeout(function() { swipe.style.transform = "translate(-60vh)";
+                 window.setTimeout(function() { swipe.parentNode.removeChild(swipe) }, 1500)}, 1000);
+         }
+         return
+     }
 
      //events handlers:
     settings.addEventListener("click", menuShow);
@@ -537,6 +561,73 @@ document.addEventListener("DOMContentLoaded", function () {
             loadPage(letter);
         })
     }
+
+    //Swipe avability
+    var swipeMe = function (direction) {
+        Cookies.set('swipeHint', 'showed');
+        var arr = [];
+        for (key in lettersDb) {
+            arr.push(key);
+        }
+        if (direction == "left") {
+            if (bigLetter.innerText.toLowerCase() == arr[arr.length - 1]) {
+                loadPage(arr[0]);
+            }
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == bigLetter.innerText.toLocaleLowerCase()) {
+                    return loadPage(arr[i + 1]) //end of function and retreive the letter
+                }
+            }
+        } else {
+            if (bigLetter.innerText.toLowerCase() == arr[0]) {
+                loadPage(arr[arr.length - 1]);
+            }
+            for (var i = arr.length - 1; i >= 0; i--) {
+                if (arr[i] == bigLetter.innerText.toLocaleLowerCase()) {
+                    return loadPage(arr[i - 1]) //end of function and retreive the letter
+                }
+            }
+        }
+    }
+    function swipeStart(e) {
+        e = e ? e : window.event;
+        e = ('changedTouches' in e)?e.changedTouches[0] : e;
+        touchStartCoords = {'x':e.pageX, 'y':e.pageY};
+        startTime = new Date().getTime();
+    }
+    function swipeMove(e){
+        e = e ? e : window.event;
+        e.preventDefault();
+    }
+    function swipeEnd(e) {
+        e = e ? e : window.event;
+        e = ('changedTouches' in e)?e.changedTouches[0] : e;
+        touchEndCoords = {'x':e.pageX - touchStartCoords.x, 'y':e.pageY - touchStartCoords.y};
+        elapsedTime = new Date().getTime() - startTime;
+        if (elapsedTime <= maxAllowedTime){
+            if (Math.abs(touchEndCoords.x) >= minDistanceXAxis && Math.abs(touchEndCoords.y) <= maxDistanceYAxis){
+                direction = (touchEndCoords.x < 0)? 'left' : 'right';
+                switch(direction){
+                    case 'left':
+                        swipeMe('left');
+                        break;
+                    case 'right':
+                        swipeMe('right');
+                        break;
+                }
+            }
+        }
+    }
+    function addMultipleListeners(el, s, fn) {
+        var evts = s.split(' ');
+        for (var i=0, iLen=evts.length; i<iLen; i++) {
+            el.addEventListener(evts[i], fn, false);
+        }
+    }
+
+    addMultipleListeners(targetElement, 'touchstart', swipeStart);
+    addMultipleListeners(targetElement, 'touchmove', swipeMove);
+    addMultipleListeners(targetElement, 'touchend', swipeEnd);
 
     //Database
     var lettersDb =

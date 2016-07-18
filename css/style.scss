@@ -85,6 +85,10 @@ header {
 			width: 13vw;
 			height: 13vw;
 		}
+		@media (min-width: $forthDim) and (orientation: landscape) {
+			width: 5vw;
+			height: 5vw;
+		}
 	}
 	@media all and (orientation:portrait) {
 		align-items: flex-start;
@@ -250,6 +254,11 @@ nav {
 			width: 15vw;
 		}
 	}
+	@media all and (min-width: $forthDim) and (orientation: landscape) {
+		img {
+			width: 10vw;
+		}
+	}
 }
 img.help-point {
 	position: absolute;
@@ -257,4 +266,11 @@ img.help-point {
 	top: 10vh;
 	left: 2vw;
 	transform: skew(15deg);
+}
+#swipeHint {
+	position: absolute;
+	width: 8vw;
+	top: 35vh;
+	left: 90vw;
+	transition: 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
