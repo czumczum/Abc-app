@@ -5,6 +5,9 @@
     transform: scale(0.1);
     transition: all 1s cubic-bezier(0.4, 0, 1, 0.29);
   }
+  @media all and (orientation:portrait) {
+    width: 100vw;
+  }
 }
 .puzzle-div {
   display: flex;
@@ -17,6 +20,10 @@
 #outer-dropzone {
   height: 10vh;
   width: 10vh;
+  @media all and (orientation:portrait) {
+    height: 10vw;
+    width: 10vw;
+  }
 }
 
 #inner-dropzone {
@@ -70,6 +77,11 @@
   -webkit-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
   transition: background-color 0.3s;
+  @media all and (orientation:portrait) {
+    height: 8vw;
+    width: 8vw;
+    font-size: 7vw;
+  }
 }
 
 .drag-drop.can-drop {

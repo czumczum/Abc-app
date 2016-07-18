@@ -57,6 +57,9 @@
       opacity: 0;
       transform: scale(0.01);
       margin-top: -60vh;
+      @media all and (orientation:portrait) {
+        margin-top: 0;
+      }
   }
   @media (min-width: $thirDim) {
     font-size: 25vw;
@@ -124,10 +127,13 @@
     width: 100vw;
     display: flex;
     align-items: center;
-    height: 51vh;
-    justify-content: flex-start;
+    height: 55vh;
+    justify-content: center;
     i {
       font-size: 20vw;
+      width: 20vw;
+      height: 20vw;
+      background-size: cover;
       @media all and (orientation:portrait)  and (min-width: $firstDim) {
         font-size: 17vw;
       }

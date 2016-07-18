@@ -331,7 +331,6 @@ document.addEventListener("DOMContentLoaded", function () {
                  var letter = currentWord.charAt(i);
                  var newDiv = document.createElement('div');
                  newDiv.classList.add('dropzone');
-                 newDiv.classList.add('no-hint');
                  newDiv.setAttribute('id', 'outer-dropzone');
                  newDiv.setAttribute("data-letter", letter);
                  dropzone.appendChild(newDiv);
@@ -393,6 +392,7 @@ document.addEventListener("DOMContentLoaded", function () {
                  document.querySelector('.puzzle-div').appendChild(newDiv);
              }
              puzzleDiv.classList.add("done");
+             hints(bulbIcon); //all puzzle will be start with no hint
          }
          // target elements with the "draggable" class
          interact('.draggable')
@@ -537,7 +537,7 @@ document.addEventListener("DOMContentLoaded", function () {
             loadPage(letter);
         })
     }
-    
+
     //Database
     var lettersDb =
     {

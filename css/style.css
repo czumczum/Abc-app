@@ -1520,6 +1520,9 @@ p i img.help-point {
     opacity: 0;
     transform: scale(0.01);
     margin-top: -60vh; }
+    @media all and (orientation: portrait) {
+      .letter.none {
+        margin-top: 0; } }
   @media (min-width: 1024px) {
     .letter {
       font-size: 25vw;
@@ -1580,10 +1583,13 @@ p i img.help-point {
       width: 100vw;
       display: flex;
       align-items: center;
-      height: 51vh;
-      justify-content: flex-start; }
+      height: 55vh;
+      justify-content: center; }
       .abc i {
-        font-size: 20vw; } }
+        font-size: 20vw;
+        width: 20vw;
+        height: 20vw;
+        background-size: cover; } }
     @media all and (orientation: portrait) and (orientation: portrait) and (min-width: 425px) {
       .abc i {
         font-size: 17vw; } }
@@ -1613,6 +1619,9 @@ p i img.help-point {
     opacity: 0;
     transform: scale(0.1);
     transition: all 1s cubic-bezier(0.4, 0, 1, 0.29); }
+  @media all and (orientation: portrait) {
+    .puzzle {
+      width: 100vw; } }
 
 .puzzle-div {
   display: flex;
@@ -1625,6 +1634,10 @@ p i img.help-point {
 #outer-dropzone {
   height: 10vh;
   width: 10vh; }
+  @media all and (orientation: portrait) {
+    #outer-dropzone {
+      height: 10vw;
+      width: 10vw; } }
 
 #inner-dropzone {
   height: 80px; }
@@ -1672,6 +1685,11 @@ p i img.help-point {
   -webkit-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
   transition: background-color 0.3s; }
+  @media all and (orientation: portrait) {
+    .drag-drop {
+      height: 8vw;
+      width: 8vw;
+      font-size: 7vw; } }
 
 .drag-drop.can-drop {
   color: #000;
