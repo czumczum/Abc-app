@@ -20,16 +20,16 @@
 #outer-dropzone {
   height: 10vh;
   width: 10vh;
-  @media all and (orientation:portrait) {
+  color: white;
+  font-size: 5vw;
+  text-transform: uppercase;
+  justify-content: center;
+@media all and (orientation:portrait) {
     height: 10vw;
     width: 10vw;
+  font-size: 5vh;
   }
 }
-
-#inner-dropzone {
-  height: 80px;
-}
-
 .dropzone {
   background-color: #ccc;
   border: dashed 4px transparent;

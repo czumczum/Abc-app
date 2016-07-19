@@ -371,8 +371,6 @@ document.addEventListener("DOMContentLoaded", function () {
                          dropzoneElement.classList.add('drop-target');
                          dropzoneElement.classList.add('good');
                          draggableElement.classList.add('can-drop');
-                         puzzleDone();
-                         //          draggableElement.textContent = 'Dragged in'; //don't need it
                      },
                      ondragleave: function (event) {
                          // remove the drop feedback style
@@ -381,10 +379,14 @@ document.addEventListener("DOMContentLoaded", function () {
                          event.relatedTarget.classList.remove('can-drop');
                          //          event.relatedTarget.textContent = 'Dragged out'; //dont need either
                      },
-                     ondrop: function (event) {
+                     ondrop: function (event) { //Here the draggable element dissapears and the target changed to letter-inside
                          event.relatedTarget.style.color = "white";
                          event.relatedTarget.style.backgroundColor = "#2bb5c1";
-                         event.relatedTarget.classList.remove('draggable');
+                         event.relatedTarget.style.display = "none";
+                         letter = event.target.dataset.letter;
+                         event.target.textContent = letter;
+                         event.target.style.backgroundColor = "#2bb5c1";
+                         puzzleDone();
                      },
                      ondropdeactivate: function (event) {
                          // remove active dropzone feedback
@@ -463,6 +465,11 @@ document.addEventListener("DOMContentLoaded", function () {
                  if (count == dropzone.length) {
                      if (fullfilled.indexOf(currentWord) < 0) {
                          fullfilled += " " + currentWord;
+                         if (kid.indexOf('girl') >= 0) {
+                             responsiveVoice.speak("Brawo, zdobyłaś punkt!", voice);
+                         } else {
+                             responsiveVoice.speak("Brawo, zdobyłeś punkt!", voice);
+                         }
                      }
                      var icons = document.querySelectorAll('.abc i');
                      for (var i = 0; i < icons.length; i++) {

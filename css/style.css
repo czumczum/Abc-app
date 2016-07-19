@@ -1633,14 +1633,16 @@ p i img.help-point {
 
 #outer-dropzone {
   height: 10vh;
-  width: 10vh; }
+  width: 10vh;
+  color: white;
+  font-size: 5vw;
+  text-transform: uppercase;
+  justify-content: center; }
   @media all and (orientation: portrait) {
     #outer-dropzone {
       height: 10vw;
-      width: 10vw; } }
-
-#inner-dropzone {
-  height: 80px; }
+      width: 10vw;
+      font-size: 5vh; } }
 
 .dropzone {
   background-color: #ccc;
