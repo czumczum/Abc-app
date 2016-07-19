@@ -581,6 +581,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Swipe avability
     var swipeMe = function (direction) {
+        var puzzleGame = document.querySelector('.drag-drop');
+        if (puzzleGame != null) {
+            return
+        }
         Cookies.set('swipeHint', 'showed');
         var arr = [];
         console.log(bigLetter.innerText.slice(0).toLowerCase());
