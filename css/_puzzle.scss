@@ -40,7 +40,7 @@
   display: inline-flex;
   transition: background-color 0.3s;
   &.no-hint {
-    border: none;
+    border-color: transparent;
   }
 }
 .dropzone-div {
@@ -49,9 +49,6 @@
 }
 .drop-active {
   border-color: $emColor;
-  .notip {
-    border-color: transparent;
-  }
 }
 
 .drop-target {

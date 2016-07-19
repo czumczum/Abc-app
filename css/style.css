@@ -1652,7 +1652,7 @@ p i img.help-point {
   display: inline-flex;
   transition: background-color 0.3s; }
   .dropzone.no-hint {
-    border: none; }
+    border-color: transparent; }
 
 .dropzone-div {
   display: flex;
@@ -1660,8 +1660,6 @@ p i img.help-point {
 
 .drop-active {
   border-color: #2bb5c1; }
-  .drop-active .notip {
-    border-color: transparent; }
 
 .drop-target {
   background-color: #29e;
@@ -1760,8 +1758,6 @@ header {
     height: 7vw;
     opacity: 0;
     transition: 1s; }
-    header img.help {
-      opacity: 1; }
     @media all and (orientation: portrait) {
       header img {
         width: 13vw;
@@ -1783,6 +1779,15 @@ header {
       align-items: flex-start; }
       header i {
         font-size: 5vw; } }
+  header .help {
+    font-family: "Katibeh", cursive;
+    color: #2bb5c1;
+    font-size: 8vw;
+    margin-top: -4vh; }
+    @media all and (orientation: portrait) {
+      header .help {
+        margin-top: 0;
+        font-size: 7vh; } }
 
 main {
   display: flex;

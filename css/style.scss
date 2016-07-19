@@ -78,9 +78,6 @@ header {
 		height: 7vw;
 		opacity: 0;
 		transition: 1s;
-		&.help {
-			opacity: 1;
-		}
 		@media all and (orientation: portrait) {
 			width: 13vw;
 			height: 13vw;
@@ -103,6 +100,17 @@ header {
 		i {
 			font-size: 5vw;
 		}
+	}
+	.help {
+		font-family: $titleFont;
+		color: $emColor;
+		font-size: 8vw;
+		margin-top: -4vh;
+		@media all and (orientation:portrait) {
+			margin-top: 0;
+			font-size: 7vh;
+		}
+
 	}
 }
 main {

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var puzzleDiv = document.querySelector('.puzzle');
     var puzzleIcon = document.querySelector('.flaticon-puzzle');
     var bulbIcon = document.querySelector('.flaticon-light-bulb');
-    var helpIcon = document.querySelector('img.help');
+    var helpIcon = document.querySelector('span.help');
     var profilePic = document.querySelector('header .kid');
     var bulbClass = "flaticon-light-bulb";
     var puzzleDel = function () {};
@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var fullfilled = "";
     var kid;
     var answered;
+    var voice = "Polish Female"; //choose the speaking voice
     //Swipe variables
     var touchStartCoords =  {'x':-1, 'y':-1}, // X and Y coordinates on mousedown or touchstart events.
         touchEndCoords = {'x':-1, 'y':-1},// X and Y coordinates on mouseup or touchend events.
@@ -85,8 +86,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 icon.classList.add("is-paused");
                 icon.addEventListener("click", letterTip);
                 icon.addEventListener("click", function () {
-                    unchangeMe();
+       //             unchangeMe();
                     currentWord = this.dataset.key;
+                    responsiveVoice.speak(currentWord, voice);
                     puzzleDel();
                     bigLetter.style.display = "flex";
                     bigLetter.classList.remove("none");
@@ -174,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     var welcomePage = function () {
         puzzleDel();
+        responsiveVoice.speak("Wybierz swoją postać", voice);
         if (document.querySelector(".welcome") != null) { //hides menu if it's seen
             var toRemove = document.querySelector('.welcome');
             toRemove.parentNode.removeChild(toRemove);
@@ -257,7 +260,6 @@ document.addEventListener("DOMContentLoaded", function () {
          var word = "";
          if (bigLetter.innerText.length > 1) { //for words with two first letters (one vowel, like 'sh')
              word = this.dataset.key.slice(2);
-             console.log(word);
          } else {
              word = this.dataset.key.slice(1);
          }
@@ -266,6 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
          bigLetter.appendChild(em);
          em.innerText = word;
          bigLetter.classList.remove("shake-slow");
+
      };
     var removeTip = function () {
          var toRemove = bigLetter.querySelector('em');
@@ -504,30 +507,36 @@ document.addEventListener("DOMContentLoaded", function () {
          if (letterMenu != null && !letterMenu.classList.contains('none')) { //if nav is displayed
              letterMenu.style.position = "relative";
              letterMenu.querySelector('h1').appendChild(imgTip);
+             responsiveVoice.speak("Wybierz którąś z liter", voice);
              window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 5000)
              }
          else if (puzzleGame != null) {
              puzzleGame.style.position = "relative";
              puzzleGame.appendChild(imgTip);
+             responsiveVoice.speak("Ułóż litery w odpowiedniej kolejności", voice);
              window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
          }
          else if (bigLetter.classList.contains("clicked")) {
              puzzleIcon.style.position = "relative";
              puzzleIcon.appendChild(imgTip);
+             responsiveVoice.speak("Kliknij na ikonę puzzli", voice);
              window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
          }
          else if (icon != null) {
              icon.style.position = "relative";
              icon.appendChild(imgTip);
+             responsiveVoice.speak("Kliknij na któryś z obrazków", voice);
              window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
          }
          else if (!bigLetter.classList.contains("clicked") && bigLetter.style.display == "flex") {
              bigLetter.style.position = "relative";
              bigLetter.appendChild(imgTip);
+             responsiveVoice.speak("Kliknij na literę", voice);
              window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
          } else if (profileMenu != null && !profileMenu.classList.contains("none")) {
              profileMenu.querySelector('div').style.position = "relative";
              profileMenu.appendChild(imgTip);
+             responsiveVoice.speak("Wybierz postać, którą będziesz grać", voice);
              window.setTimeout(function () { imgTip.parentNode.removeChild(imgTip) }, 3000)
          }
      };
@@ -538,6 +547,7 @@ document.addEventListener("DOMContentLoaded", function () {
              swipe.setAttribute('src', 'img/pointing.svg');
              swipe.setAttribute("id", "swipeHint");
              document.querySelector('body').appendChild(swipe);
+             responsiveVoice.speak("Przesuń palcem po ekranie, aby zmienić literę", voice);
              window.setTimeout(function() { swipe.style.transform = "translate(-60vh)";
                  window.setTimeout(function() { swipe.parentNode.removeChild(swipe) }, 1500)}, 1000);
          }
@@ -566,24 +576,25 @@ document.addEventListener("DOMContentLoaded", function () {
     var swipeMe = function (direction) {
         Cookies.set('swipeHint', 'showed');
         var arr = [];
+        console.log(bigLetter.innerText.slice(0).toLowerCase());
         for (key in lettersDb) {
             arr.push(key);
         }
         if (direction == "left") {
-            if (bigLetter.innerText.toLowerCase() == arr[arr.length - 1]) {
+            if (bigLetter.innerText.slice(0,1).toLowerCase() == arr[arr.length - 1]) {
                 loadPage(arr[0]);
             }
             for (var i = 0; i < arr.length; i++) {
-                if (arr[i] == bigLetter.innerText.toLocaleLowerCase()) {
+                if (arr[i] == bigLetter.innerText.slice(0,1).toLocaleLowerCase()) {
                     return loadPage(arr[i + 1]) //end of function and retreive the letter
                 }
             }
         } else {
-            if (bigLetter.innerText.toLowerCase() == arr[0]) {
+            if (bigLetter.innerText.slice(0,1).toLowerCase() == arr[0]) {
                 loadPage(arr[arr.length - 1]);
             }
             for (var i = arr.length - 1; i >= 0; i--) {
-                if (arr[i] == bigLetter.innerText.toLocaleLowerCase()) {
+                if (arr[i] == bigLetter.innerText.slice(0,1).toLocaleLowerCase()) {
                     return loadPage(arr[i - 1]) //end of function and retreive the letter
                 }
             }
