@@ -6,8 +6,10 @@
 @import "fonts/city/flaticon";
 @import "fonts/fairy/flaticon";
 @import "fonts/game/flaticon";
+@import "fonts/media/flaticon";
 @import "letter";
 @import "puzzle";
+@import "credits";
 
 * {
 	padding: 0;
@@ -21,6 +23,12 @@ body {
 	height: 100vh;
 	overflow: hidden;
 	justify-content: space-between;
+}
+a {
+  font-size: 1em;
+  color: black;
+text-decoration: none;
+  font-style: normal;
 }
 h1 {
 	font-family: $titleFont;
@@ -63,9 +71,11 @@ header {
 		display: flex;
 		width: 21vw;
 		flex-direction: row;
+		align-items: center;
 	}
 	i {
 		font-size: 10vw;
+		cursor: pointer;
 		@media all and (orientation: landscape) and (min-width: $firstDim) {
 			font-size: 7vw;
 		}
@@ -73,11 +83,15 @@ header {
 			font-size: 13vw;
 		}
 	}
+	span {
+		cursor: pointer;
+	}
 	img {
 		width: 7vw;
 		height: 7vw;
 		opacity: 0;
 		transition: 1s;
+		cursor: pointer;
 		@media all and (orientation: portrait) {
 			width: 13vw;
 			height: 13vw;
@@ -226,6 +240,7 @@ nav {
 	img {
 		display: inline-flex;
 		width: 11vw;
+		cursor: pointer;
 	}
 	span {
 		color: $mainColor;

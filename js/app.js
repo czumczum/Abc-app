@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 bigLetter.removeEventListener("click", showLetter);
             }
         bigLetter.addEventListener("click", createIcons);
+        puzzleIcon.style.display = "none";
         swipeHint();
         createFooterMenu();
     };
@@ -269,6 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
          bigLetter.appendChild(em);
          em.innerText = word;
          bigLetter.classList.remove("shake-slow");
+        puzzleIcon.style.display = "inline-flex";
 
      };
     var removeTip = function () {
@@ -559,6 +561,10 @@ document.addEventListener("DOMContentLoaded", function () {
              window.setTimeout(function() { swipe.style.transform = "translate(-60vh)";
                  window.setTimeout(function() { swipe.parentNode.removeChild(swipe) }, 1500)}, 1000);
          }
+         var mq = window.matchMedia( "(min-width: 1024px)" );
+         if (mq.matches) {
+             Cookies.set('swipeHint', 'showed');
+         }
          return
      }
     //Menu handling - Menu in the footer, visible only with wide screens ($thirDim: 1024px)
@@ -600,6 +606,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (key in lettersDb) {
             arr.push(key);
         }
+        console.log(arr);
         if (direction == "left") {
             if (bigLetter.innerText.slice(0,1).toLowerCase() == arr[arr.length - 1]) {
                 loadPage(arr[0]);

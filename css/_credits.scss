@@ -1,0 +1,31 @@
+.credits {
+  display: block;
+  margin: 10vh 10vw;
+  width: auto;;
+h1 {
+  font-size: 4em;
+  line-height: 0.2;
+}
+  h2 {
+    margin-top: 5vh;
+    a {
+    color: black;
+    text-align: center;
+    font-family: $textFont;
+  }
+}
+    p {
+      display: inline-block;
+      font-family: $textFont;
+      font-size: 2em;
+    }
+  i {
+    font-family: "Flaticon-media";
+  }
+  a {
+    text-decoration: none;
+  }
+  h3 {
+    margin-top: 10vh;
+  }
+}

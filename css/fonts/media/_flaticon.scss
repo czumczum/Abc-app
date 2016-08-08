@@ -1,0 +1,61 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 08/08/2016 23:06
+    */
+
+    @font-face {
+  font-family: "Flaticon-media";
+  src: url("./fonts/media/Flaticon.eot");
+  src: url("./fonts/media/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./fonts/media/Flaticon.woff") format("woff"),
+       url("./fonts/media/Flaticon.ttf") format("truetype"),
+       url("./fonts/media/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon-media";
+    src: url("./fonts/media/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon-media";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-commercial-at:before { content: "\f100"; }
+.flaticon-draw-pin:before { content: "\f101"; }
+.flaticon-facebook:before { content: "\f102"; }
+.flaticon-ghost-draw-logo:before { content: "\f103"; }
+.flaticon-github-draw-logo:before { content: "\f104"; }
+.flaticon-inbox-stack-draw-logo:before { content: "\f105"; }
+.flaticon-instagram-draw-logo:before { content: "\f106"; }
+.flaticon-linkedin-draw-logo:before { content: "\f107"; }
+.flaticon-skype-draw-logo:before { content: "\f108"; }
+.flaticon-twitter-draw-logo:before { content: "\f109"; }
+.flaticon-whatsapp-draw-logo:before { content: "\f10a"; }
+    
+    $font-Flaticon-commercial-at: "\f100";
+    $font-Flaticon-draw-pin: "\f101";
+    $font-Flaticon-facebook: "\f102";
+    $font-Flaticon-ghost-draw-logo: "\f103";
+    $font-Flaticon-github-draw-logo: "\f104";
+    $font-Flaticon-inbox-stack-draw-logo: "\f105";
+    $font-Flaticon-instagram-draw-logo: "\f106";
+    $font-Flaticon-linkedin-draw-logo: "\f107";
+    $font-Flaticon-skype-draw-logo: "\f108";
+    $font-Flaticon-twitter-draw-logo: "\f109";
+    $font-Flaticon-whatsapp-draw-logo: "\f10a";
