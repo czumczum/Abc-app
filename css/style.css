@@ -1938,4 +1938,20 @@ img.help-point {
   left: 90vw;
   transition: 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
 
+.cookie-alert {
+  position: absolute;
+  width: 90vw;
+  height: 90vh;
+  z-index: 22;
+  bottom: 0;
+  background-color: rgba(250, 250, 250, 0.9);
+  padding: 5vh 5vw;
+  font-size: 3vh;
+  font-family: "PT Serif", serif; }
+  .cookie-alert h6 {
+    font-size: 1.4em; }
+  @media all and (orientation: landscape) {
+    .cookie-alert {
+      font-size: 3vw; } }
+
 /*# sourceMappingURL=style.css.map */

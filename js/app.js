@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Variables
     var letterSpace = document.querySelector(".abc");
     var bigLetter = document.querySelector('h1.letter');
-    var navMenu = document.querySelectorAll('footer h1');
+    var navMenu = document.querySelector('footer');
     var settings = document.querySelector("header i");
     var puzzleDiv = document.querySelector('.puzzle');
     var puzzleIcon = document.querySelector('.flaticon-puzzle');
@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         bigLetter.addEventListener("click", createIcons);
         swipeHint();
+        createFooterMenu();
     };
     // Function for checking that it's worth to shake or not AND removes 'clicked' class
     shakeOrNot = function() {
@@ -560,6 +561,22 @@ document.addEventListener("DOMContentLoaded", function () {
          }
          return
      }
+    //Menu handling - Menu in the footer, visible only with wide screens ($thirDim: 1024px)
+    var createFooterMenu = function () {
+        var firstLetters = [];
+        for (var key in lettersDb) {
+            firstLetters.push(key);
+        }
+        for (var i = 0; i < firstLetters.length; i++) {
+            var h1 = document.createElement('h1');
+            navMenu.appendChild(h1);
+            h1.innerText = firstLetters[i];
+            h1.addEventListener("click", function () {
+                var letter = this.innerText.toLowerCase();
+                loadPage(letter);
+            })
+        }
+    };
 
      //events handlers:
     settings.addEventListener("click", menuShow);
@@ -570,14 +587,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     profilePic.addEventListener("click", welcomePage);
     helpIcon.addEventListener("click", helpMe);
-
-    //Menu handling
-    for (var i = 0; i < navMenu.length; i++) {
-        navMenu[i].addEventListener("click", function() {
-            var letter = this.innerText.toLowerCase();
-            loadPage(letter);
-        })
-    }
 
     //Swipe avability
     var swipeMe = function (direction) {
