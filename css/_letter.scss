@@ -7,6 +7,9 @@
     height: 30vh;
     width: 100vw;
   }
+  @media all and (min-width: $thirDim) {
+    height: 65vh;
+  }
   p {
     margin: 2vh 5vw;
   }

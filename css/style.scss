@@ -138,6 +138,9 @@ main {
 		display: flex;
 		transform-origin: center center;
 	}
+	@media all and (min-width: $thirDim) {
+		height: 65vh;
+	}
 	@media all and (orientation:portrait) {
 		flex-direction: column;
 		justify-content: flex-start;
@@ -303,6 +306,7 @@ img.help-point {
 	height: 90vh;
 	z-index: 22;
 	bottom: 0;
+    left: 0;
 	background-color: rgba(250, 250, 250, 0.9);
 	padding: 5vh 5vw;
 	font-size: 3vh;
