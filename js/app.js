@@ -1,3 +1,4 @@
+"use strict";
 document.addEventListener("DOMContentLoaded", function () {
 
     //Variables
@@ -292,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
             puzzleDiv.removeChild(hrRemove);
             var toRemove = puzzleDiv.querySelector('.dropzone-div');
             toRemove.parentNode.removeChild(toRemove);
-            divs = puzzleDiv.querySelectorAll('.drag-drop');
+            var divs = puzzleDiv.querySelectorAll('.drag-drop');
             for (var i = 0; i < divs.length; i++) {
                 var toRemove = divs[i];
                 toRemove.parentNode.removeChild(toRemove);
@@ -603,7 +604,7 @@ document.addEventListener("DOMContentLoaded", function () {
         Cookies.set('swipeHint', 'showed');
         var arr = [];
         console.log(bigLetter.innerText.slice(0).toLowerCase());
-        for (key in lettersDb) {
+        for (let key in lettersDb) {
             arr.push(key);
         }
         console.log(arr);
